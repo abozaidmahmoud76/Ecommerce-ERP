@@ -2,14 +2,21 @@
 
 
 Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
-    Config::set('auth.defines','admin');
+
+    Config::set('auth.defines','admin'); //set default guard admin for user in auth
+    //admin login
     Route::get('/login','AdminAuth@login');
-    Route::group(['middleware'=>'admin:admin','namespace'=>'Admin'],function(){
+    Route::post('/login','AdminAuth@doLogin');
 
+    Route::get('forget/password','AdminAuth@forget_password');
+    Route::post('forget/password','AdminAuth@forget_password_post');
 
-        route::get('/',function (){
+    Route::group(['middleware'=>'admin:admin'],function(){
+
+        Route::get('/',function (){
             return view('admin.home');
         }) ;
+        Route::any('logout','AdminAuth@logout');
 
 
     });
