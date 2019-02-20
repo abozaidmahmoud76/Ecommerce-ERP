@@ -14,7 +14,9 @@
         ]) !!}
 
     </div>
-    <!-- /.box-body -->
+@push('js')
+    {{$dataTable->scripts()}}
+@endpush
 </div>
 
 

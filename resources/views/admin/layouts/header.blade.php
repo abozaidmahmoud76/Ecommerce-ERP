@@ -27,8 +27,7 @@
     <link rel="stylesheet" href="{{ asset('design/AdminLTE/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
     <!-- Google Font -->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-    <!-- jQuery 3 -->
-    <script src="{{asset('design/AdminLTE/bower_components/jquery/dist/jquery.min.js')}}"></script>
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

@@ -201,8 +201,12 @@
 <div class="control-sidebar-bg"></div>
 </div>
 <!-- ./wrapper -->
+<!-- DataTables -->
 
 
+
+<!-- jQuery 3 -->
+<script src="{{asset('design/AdminLTE/bower_components/jquery/dist/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('design/AdminLTE/bower_components/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
@@ -238,3 +242,9 @@
 <script src="{{asset('design/AdminLTE/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('design/AdminLTE/dist/js/demo.js')}}"></script>
+<link rel="stylesheet" href="{{asset('design/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">
+<script src="{{asset('design/AdminLTE/bower_components/datatables.net/js/jquery.dataTables.min.js')}}"></script>
+<script src="{{asset('design/AdminLTE/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js')}}"></script>
+
+@stack('js')
+@stack('css')

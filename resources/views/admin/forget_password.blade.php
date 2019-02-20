@@ -54,7 +54,8 @@
                 <!-- /.col -->
             </div>
         </form>
-        <a href="register.html" class="text-center">Signin</a>
+
+        <a href="{{adminUrl()}}" class="text-bold">Back</a>
 
     </div>
     <!-- /.login-box-body -->

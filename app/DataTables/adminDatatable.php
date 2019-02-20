@@ -53,7 +53,8 @@ class adminDatatable extends DataTable
     {
         return [
             'id',
-            'add your columns',
+            'name',
+            'email',
             'created_at',
             'updated_at',
 
