@@ -10,6 +10,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
 
     Route::get('forget/password','AdminAuth@forget_password');
     Route::post('forget/password','AdminAuth@forget_password_post');
+    Route::get('reset/password/{token}','AdminAuth@reset_password');
+    Route::post('update/password/{token}','AdminAuth@update_password');
 
     Route::group(['middleware'=>'admin:admin'],function(){
 
@@ -17,6 +19,8 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
             return view('admin.home');
         }) ;
         Route::any('logout','AdminAuth@logout');
+
+        Route::resource('admin','AdminController');
 
 
     });

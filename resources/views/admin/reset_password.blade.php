@@ -34,27 +34,41 @@
     </div>
     <!-- /.login-logo -->
     <div class="login-box-body">
-        <p class="login-box-msg">{{trans('admin.forget_password')}}</p>
+        <p class="login-box-msg">{{trans('admin.reset_password_new')}}</p>
 
         @if(session()->has('admin_reset_password'))
             <p class="alert alert-success">{{session('admin_reset_password')}}</p>
         @endif
-        <form action="{{adminUrl('forget/password')}}" method="post">
+
+        @if($errors->any())
+            @foreach($errors->all() as $error)
+                <p class="alert alert-danger">{{$error}}</p>
+            @endforeach
+        @endif
+
+        <form action="{{adminUrl('update/password/'.$data->token)}}" method="post">
             {{csrf_field()}}
             {{method_field('post')}}
             <div class="form-group has-feedback">
-                <input type="email" name="email"  class="form-control" placeholder="Email">
+                <input type="email" name="email"  value="{{$data->email}}" readonly class="form-control" placeholder="Email">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" name="password"   class="form-control" placeholder="new password">
+                <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+            </div>
+            <div class="form-group has-feedback">
+                <input type="password" name="password_confirmation"   class="form-control" placeholder="Retype password">
                 <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
             </div>
             <div class="row">
                 <!-- /.col -->
                 <div class="col-xs-4">
-                    <button type="submit" class="btn btn-primary  ">Rest password</button>
+                    <button type="submit" class="btn btn-primary  ">update password</button>
                 </div>
                 <!-- /.col -->
             </div>
         </form>
-        <a href="register.html" class="text-center">Signin</a>
 
     </div>
     <!-- /.login-box-body -->

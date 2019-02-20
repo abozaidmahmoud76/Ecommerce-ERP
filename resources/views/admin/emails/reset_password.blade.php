@@ -1,12 +1,13 @@
 @component('mail::message')
-# Introduction
+# Reset account
 
-The body of your message.
+<p>Welcome {{$data['data']['name']}}</p>
 
 @component('mail::button', ['url' => adminUrl('reset/password/'.$data['token'])])
-reset password
+Click here to reset password
 @endcomponent
 
-Thanks {{$data['data']['name']}} ,<br>
+or copy this link
+<a href="{{adminUrl('reset/password/'.$data['token'])}}">{{adminUrl('reset/password/'.$data['token'])}}</a>
 {{ config('app.name') }}
 @endcomponent

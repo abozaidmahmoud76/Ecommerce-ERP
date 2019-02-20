@@ -38,6 +38,10 @@
         @if(Session::has('invalid_login'))
             <p class="alert alert-danger">{{Session::get('invalid_login')}}</p>
         @endif
+
+        @if(Session::has('reset_password_doen'))
+            <p class="alert alert-success">{{Session::get('reset_password_doen')}}</p>
+        @endif
         <form action="{{url('admin/login')}}" method="post">
             {{csrf_field()}}
             {{method_field('post')}}
