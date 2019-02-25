@@ -11,7 +11,7 @@
     <div class="box-body">
         {!! $dataTable->table([
             'class'=>'dataTable table table-bordered '
-        ]) !!}
+        ],true) !!}
 
     </div>
 @push('js')

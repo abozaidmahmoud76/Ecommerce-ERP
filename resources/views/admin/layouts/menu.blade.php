@@ -239,6 +239,25 @@
                 </li>
             </ul>
         </li>
+
+
+        <li class="dropdown user user-menu">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                <i class="fa fa-globe"></i>
+            </a>
+            <ul class="dropdown-menu">
+                <li>
+                    <a href="{{adminUrl('lang/ar')}}"><i class="fa fa-amazon"></i> عربى </a>
+                </li>
+                <li>
+                    <a href="{{adminUrl('lang/en')}}"> <i class="fa fa-etsy"></i>English</a>
+                </li>
+
+            </ul>
+        </li>
+
+
+
         <!-- Control Sidebar Toggle Button -->
         <li>
             <a href="#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>

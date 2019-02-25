@@ -8,6 +8,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
     Route::get('/login','AdminAuth@login');
     Route::post('/login','AdminAuth@doLogin');
 
+
     Route::get('forget/password','AdminAuth@forget_password');
     Route::post('forget/password','AdminAuth@forget_password_post');
     Route::get('reset/password/{token}','AdminAuth@reset_password');
@@ -21,8 +22,11 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::any('logout','AdminAuth@logout');
 
         Route::resource('admin','AdminController');
+    });
 
-
+    Route::get('lang/{lang}',function ($lang){
+       session()->put('lang',$lang);
+       return back();
     });
 
 });

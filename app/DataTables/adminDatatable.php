@@ -32,6 +32,34 @@ class adminDatatable extends DataTable
         return Admin::query();
     }
 
+    public static function lang(){
+        $lang= [
+            "sProcessing"=>__('admin.precessing'),
+            "sLengthMenu"=>__('admin.lengthMenu'),
+            "sZeroRecords"=>__('admin.zeroRecord'),
+            "sEmptyTable"=>__('admin.emptyTable'),
+            "sInfo"=>__('admin.info'),
+            "sInfoEmpty"=>__('admin.infoEmpty'),
+            "sInfoFiltered"=>__('admin.infoFilterd'),
+            "sInfoPostFix"=>__('admin.infoPostFix'),
+            "sSearch"=>__('admin.search'),
+            "sUrl"=>__('admin.url'),
+            "sInfoThousands"=>__('admin.infoThounds'),
+            "sLoadingRecords"=>__('admin.loadRecord'),
+            "oPaginate"=> [
+                "sFirst"=> __('admin.first'),
+                "sLast"=> __('admin.last'),
+                "sNext"=> __('admin.next'),
+                "sPrevious"=> __('admin.previous')
+            ],
+
+        ];
+
+        return $lang;
+
+    }
+
+
     /**
      * Optional method if you want to use html builder.
      *
@@ -48,14 +76,28 @@ class adminDatatable extends DataTable
                 'dom'        => 'Blfrtip',
                 'lengthMenu' => [[10, 25, 50, 100], [10, 25, 50, 'All Record']],
                 'buttons'    => [
-
                     ['extend' => 'print', 'className' => 'btn btn-danger', 'text' => '<i class="fa fa-print">'. __("admin.pdf") .'</i>'],
                     ['extend' => 'csv', 'className' => 'btn btn-info', 'text' => '<i class="fa fa-file">'.__("admin.csc") .'</i> '],
                     ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("admin.excel") .'</i> '],
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
 
                 ],
+                'initComplete'=>'function () {
+                  this.api().columns().every(function () {
+                  var column = this;
+                  var input = document.createElement("input");
+                 $(input).appendTo($(column.footer()).empty())
+                   .on(\'keyup\', function () {
+                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+                    column.search(val ? val : \'\', true, false).draw();
+                });
+            });
+        }',
+         'language'=>self::lang()
+
+
             ]);
+
     }
 
     /**
@@ -81,7 +123,15 @@ class adminDatatable extends DataTable
                 'exportable'=>false,
                 'orderable'=>false
             ],
-            'delete'
+            [
+                'title'=>'delete',
+                'name'=>'delete',
+                'data'=>'delete',
+                'printable'=>false,
+                'searchable'=>false,
+                'exportable'=>false,
+                'orderable'=>false
+            ]
 
 
         ];

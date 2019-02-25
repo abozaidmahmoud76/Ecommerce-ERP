@@ -11,5 +11,21 @@ return[
    'reset_password_new'=>'create new password',
     'pdf'=>'PDF',
     'csv'=>'CSV',
-    'excel'=>'Excel'
+    'excel'=>'Excel',
+    'precessing'=>'precessing',
+    'lengthMenu'=>'show _MENU_ records',
+    'zeroRecord'=>'no record',
+    'emptyTable'=>'emptyTable',
+    'info'=>'show _START_ to _END_ from _TOTAL_ records',
+    'infoEmpty'=>'infoEmpty',
+    'infoFilterd'=>'infoFilterd',
+    'infoPostFix'=>'',
+    'search'=>'search',
+    'infoThounds'=>'infoThounds',
+    'loadRecord'=>'loadRecord',
+    'first'=>'first',
+    'last'=>'last',
+    'next'=>'next',
+    'previous'=>'previous',
+
 ];
