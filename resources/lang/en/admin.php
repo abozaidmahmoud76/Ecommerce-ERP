@@ -9,4 +9,7 @@ return[
    'forget_password'=>'Reset password',
    'reset_password'=>'password reset successfully',
    'reset_password_new'=>'create new password',
+    'pdf'=>'PDF',
+    'csv'=>'CSV',
+    'excel'=>'Excel'
 ];

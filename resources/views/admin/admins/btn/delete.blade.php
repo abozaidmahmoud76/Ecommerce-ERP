@@ -1,2 +1,2 @@
-<a href="{{adminUrl('admin/'.$id.'/edit')}}" class="fa fa-edit"></a>
+<a href="#" class="fa fa-trash fa-lg" title="delete admin"></a>
 

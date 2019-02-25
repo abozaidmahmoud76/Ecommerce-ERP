@@ -180,6 +180,8 @@ return [
 
         /////        my custom provider ////////
         Yajra\DataTables\DataTablesServiceProvider::class,
+        Yajra\DataTables\ButtonsServiceProvider::class,
+
 
     ],
 
