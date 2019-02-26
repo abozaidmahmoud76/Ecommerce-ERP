@@ -27,5 +27,9 @@ return[
     'last'=>'last',
     'next'=>'next',
     'previous'=>'previous',
+    'created_at'=>' created_at',
+    'updated_at'=>'updated_at ',
+    'edit'=>'edit',
+    'delete'=>'delete'
 
 ];

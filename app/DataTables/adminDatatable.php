@@ -18,7 +18,8 @@ class adminDatatable extends DataTable
         return datatables($query)
             ->addColumn('edit', 'admin.admins.btn.edit')
             ->addColumn('delete', 'admin.admins.btn.delete')
-            ->rawColumns(['edit','delete']);
+            ->addColumn('checkbox', 'admin.admins.btn.checkbox')
+            ->rawColumns(['edit','delete','checkbox']);
     }
 
     /**
@@ -32,32 +33,7 @@ class adminDatatable extends DataTable
         return Admin::query();
     }
 
-    public static function lang(){
-        $lang= [
-            "sProcessing"=>__('admin.precessing'),
-            "sLengthMenu"=>__('admin.lengthMenu'),
-            "sZeroRecords"=>__('admin.zeroRecord'),
-            "sEmptyTable"=>__('admin.emptyTable'),
-            "sInfo"=>__('admin.info'),
-            "sInfoEmpty"=>__('admin.infoEmpty'),
-            "sInfoFiltered"=>__('admin.infoFilterd'),
-            "sInfoPostFix"=>__('admin.infoPostFix'),
-            "sSearch"=>__('admin.search'),
-            "sUrl"=>__('admin.url'),
-            "sInfoThousands"=>__('admin.infoThounds'),
-            "sLoadingRecords"=>__('admin.loadRecord'),
-            "oPaginate"=> [
-                "sFirst"=> __('admin.first'),
-                "sLast"=> __('admin.last'),
-                "sNext"=> __('admin.next'),
-                "sPrevious"=> __('admin.previous')
-            ],
 
-        ];
-
-        return $lang;
-
-    }
 
 
     /**
@@ -82,18 +58,18 @@ class adminDatatable extends DataTable
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
 
                 ],
-                'initComplete'=>'function () {
-                  this.api().columns().every(function () {
-                  var column = this;
-                  var input = document.createElement("input");
-                 $(input).appendTo($(column.footer()).empty())
-                   .on(\'keyup\', function () {
-                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
-                    column.search(val ? val : \'\', true, false).draw();
-                });
-            });
-        }',
-         'language'=>self::lang()
+//                'initComplete'=>'function () {
+//                  this.api().columns().every(function () {
+//                  var column = this;
+//                  var input = document.createElement("input");
+//                 $(input).appendTo($(column.footer()).empty())
+//                   .on(\'keyup\', function () {
+//                    var val = $.fn.dataTable.util.escapeRegex($(this).val());
+//                    column.search(val ? val : \'\', true, false).draw();
+//                });
+//            });
+//        }',
+         'language'=>datatable_language()
 
 
             ]);
@@ -108,14 +84,33 @@ class adminDatatable extends DataTable
     protected function getColumns()
     {
         return [
+            [
+                'title'=>'<input type="checkbox" class="check_all" onclick="check_all()">',
+                'name'=>'checkbox',
+                'data'=>'checkbox',
+                'printable'=>false,
+                'searchable'=>false,
+                'exportable'=>false,
+                'orderable'=>false
+            ],
             'id',
             'name',
             'email',
-            'created_at',
-            'updated_at',
+            [
+                'title'=>__('admin.created_at'),
+                'name'=>'created_at',
+                'data'=>'created_at',
+            ],
 
             [
-                'title'=>'edit',
+                'title'=>__('admin.updated_at'),
+                'name'=>'updated_at',
+                'data'=>'updated_at',
+            ],
+
+
+            [
+                'title'=>__('admin.edit'),
                 'name'=>'edit',
                 'data'=>'edit',
                 'printable'=>false,
@@ -124,7 +119,7 @@ class adminDatatable extends DataTable
                 'orderable'=>false
             ],
             [
-                'title'=>'delete',
+                'title'=>__('admin.delete'),
                 'name'=>'delete',
                 'data'=>'delete',
                 'printable'=>false,

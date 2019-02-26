@@ -10,8 +10,22 @@
     <link rel="stylesheet" href="{{ asset('design/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css')}}">
     <!-- Ionicons -->
     <link rel="stylesheet" href="{{ asset('design/AdminLTE/bower_components/Ionicons/css/ionicons.min.css')}}">
+
+@if(direction()=='rtl')
+    <link rel="stylesheet" href="{{ asset('design/AdminLTE/dist/rtl/css/AdminLTE.css')}}">
+    <link rel="stylesheet" href="{{ asset('design/AdminLTE/dist/rtl/css/bootstrap-rtl.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('design/AdminLTE/dist/rtl/css/rtl.css')}}">
+   <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">    <style>
+        html,body{
+            font-family: 'Cairo', cursive;
+        }
+    </style>
+
+
+@else
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('design/AdminLTE/dist/css/AdminLTE.min.css')}}">
+@endif
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
     <link rel="stylesheet" href="{{ asset('design/AdminLTE/dist/css/skins/_all-skins.min.css')}}">
