@@ -56,6 +56,7 @@ class adminDatatable extends DataTable
                     ['extend' => 'csv', 'className' => 'btn btn-info', 'text' => '<i class="fa fa-file">'.__("admin.csc") .'</i> '],
                     ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("admin.excel") .'</i> '],
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
+                    ['className' => 'btn btn-danger delBtn' , 'text' => '<i class="fa fa-trash">delete</i>'],
 
                 ],
 //                'initComplete'=>'function () {

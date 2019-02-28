@@ -30,6 +30,11 @@ return[
     'created_at'=>' created_at',
     'updated_at'=>'updated_at ',
     'edit'=>'edit',
-    'delete'=>'delete'
+    'delete'=>'delete',
+    'yes'=>'yes',
+    'no'=>'close',
+    'select_record_to_delete'=>'please select records to delete',
+
+
 
 ];

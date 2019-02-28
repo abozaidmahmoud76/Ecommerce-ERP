@@ -29,5 +29,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
        return back();
     });
 
+    Route::post('delete/all','AdminController@destroy');
+
 });
 

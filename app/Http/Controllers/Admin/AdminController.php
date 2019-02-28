@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\DataTables\adminDatatable;
+use App\Model\Admin;
 
 class AdminController extends Controller
 {
@@ -32,37 +33,30 @@ class AdminController extends Controller
         //
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function edit($id)
     {
         //
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
+
     public function update(Request $request, $id)
     {
         //
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+
+    public function destroy(request $req)
     {
-        //
+       $records=count($req->item_checkbox);
+       if($records){
+           if($records==1){
+               Admin::find($req->item_checkbox[0])->delete();
+               return back();
+           }else{
+               Admin::destroy($req->item_checkbox);
+               return back();
+           }
+       }
     }
 }
