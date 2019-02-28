@@ -18,13 +18,18 @@ class AdminController extends Controller
 
     public function create()
     {
-        //
+        return view('admin.admins.create',['title'=>__('admin.add')]);
     }
 
 
-    public function store(Request $request)
+    public function store(Request $req)
     {
-        //
+       $item=new Admin();
+       $item->name=$req->name;
+       $item->email=$req->email;
+       $item->password=bcrypt($req->password);
+       $item->save();
+       return back();
     }
 
 

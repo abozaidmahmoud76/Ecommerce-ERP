@@ -57,6 +57,7 @@ class adminDatatable extends DataTable
                     ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("admin.excel") .'</i> '],
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
                     ['className' => 'btn btn-danger delBtn' , 'text' => '<i class="fa fa-trash">delete</i>'],
+                    ['className' => 'btn btn-primary add_member' , 'text' => '<i class="fa fa-plus">'.__("admin.add").'</i>'],
 
                 ],
 //                'initComplete'=>'function () {
@@ -127,7 +128,7 @@ class adminDatatable extends DataTable
                 'searchable'=>false,
                 'exportable'=>false,
                 'orderable'=>false
-            ]
+            ],
 
 
         ];

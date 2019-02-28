@@ -34,6 +34,8 @@ return[
     'yes'=>'yes',
     'no'=>'close',
     'select_record_to_delete'=>'please select records to delete',
+    'add'=>'create new member',
+    'submit'=>'create'
 
 
 
