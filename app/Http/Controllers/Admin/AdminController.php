@@ -22,37 +22,64 @@ class AdminController extends Controller
     }
 
 
+
+
+
     public function store(Request $req)
     {
+       $validate=$this->validate($req,[
+           'name'=>'required|string|min:3',
+           'email'=>'required|email|unique:admins',
+           'password'=>'required|min:3|max:55',
+
+       ]);
        $item=new Admin();
-       $item->name=$req->name;
-       $item->email=$req->email;
-       $item->password=bcrypt($req->password);
+       $item->name=strip_tags($req->name) ;
+       $item->email=strip_tags($req->email);
+       $item->password=strip_tags(bcrypt($req->password));
        $item->save();
+       session()->flash('success','user created successfully');
        return back();
     }
 
 
     public function show($id)
     {
-        //
     }
 
 
     public function edit($id)
     {
-        //
+       $item=Admin::find($id);
+       return view('admin.admins.edit',['title'=>'Edit User','item'=>$item]);
     }
 
 
-    public function update(Request $request, $id)
+    public function update(Request $req, $id)
     {
-        //
+        $validate=$this->validate($req,[
+            'name'=>'required|string|min:3',
+            'email'=>'required|email|unique:admins,email,'.$id,
+            'password'=>'sometimes|nullable|min:3|max:55',
+
+        ]);
+        $item=Admin::find($id);
+        if($item) {
+            $item->name = strip_tags($req->name);
+            $item->email = strip_tags($req->email);
+            if(!empty($req->password)) {
+                $item->password = strip_tags(bcrypt($req->password));
+            }
+            $item->save();
+            session()->flash('success', 'user updated successfully');
+            return back();
+        }
     }
 
 
     public function destroy(request $req)
     {
+        dd('dd');
        $records=count($req->item_checkbox);
        if($records){
            if($records==1){

@@ -1,3 +1,3 @@
-<a href="#" class="fa fa-trash fa-lg delBtn" title="delete admin"></a>
+<a href="#" class="fa fa-trash fa-lg " title="delete admin"></a>
 
 

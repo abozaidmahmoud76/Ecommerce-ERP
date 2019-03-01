@@ -17,7 +17,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
     Route::group(['middleware'=>'admin:admin'],function(){
 
         Route::get('/',function (){
-            return view('admin.home');
+            return view('admin.home',['title'=>'admin home']);
         }) ;
         Route::any('logout','AdminAuth@logout');
 

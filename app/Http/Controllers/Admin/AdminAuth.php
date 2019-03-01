@@ -49,6 +49,7 @@ class AdminAuth extends Controller
                'token'=>$token,
                'created_at'=>Carbon::now()
             ]);
+
             Mail::to($admin->email)->send(new resetPassword(['data'=>$admin,'token'=>$token]));
             Session::flash('admin_reset_password',trans('admin.reset_password'));
             return redirect(adminUrl('login'));
