@@ -6,9 +6,40 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\DataTables\adminDatatable;
 use App\Model\Admin;
+use Mail;
+use App\Mail\sendMail;
 
 class AdminController extends Controller
 {
+
+    public function send(){
+        // Mail::send(
+        //     ['text'=>'admin.edit'],
+        //    ['name'=>'my custom name'],
+        //     function($msg){
+        //         $msg->to('m.abuzaid@mu.edu.sa','hoda abozaid')->subject('test sent mail to outlook');
+        //         $msg->from('abozaidmahmoud76@gmail.com','test user');
+        //     }
+     //   );
+
+          return view('admin.sendMail');
+
+    }
+
+    public function sendPost(Request $req){
+        // Mail::send(
+        //     ['text'=>'admin.edit'],
+        //    ['name'=>'my custom name'],
+        //     function($msg){
+        //         $msg->to('m.abuzaid@mu.edu.sa','hoda abozaid')->subject('test sent mail to outlook');
+        //         $msg->from('abozaidmahmoud76@gmail.com','test user');
+        //     }
+     //   );
+
+
+         Mail::send(new SendMail($req));
+
+    }
 
     public function index(adminDatatable $admin)
     {
@@ -77,18 +108,18 @@ class AdminController extends Controller
     }
 
 
-    public function destroy(request $req)
+    public function destroy(request $req,$id=null)
     {
-        dd('dd');
-       $records=count($req->item_checkbox);
-       if($records){
-           if($records==1){
-               Admin::find($req->item_checkbox[0])->delete();
-               return back();
-           }else{
-               Admin::destroy($req->item_checkbox);
-               return back();
-           }
-       }
+        
+     $records='';
+     if($id!=null){
+        Admin::find($id)->delete();
+        $records='record';
+     }else{
+        Admin::destroy($req->item_checkbox);
+        $records='records';
+     }
+        session()->flash('success',$records .' deleted successfully');
+        return back();
     }
 }

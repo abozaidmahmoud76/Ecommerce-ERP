@@ -22,15 +22,22 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::any('logout','AdminAuth@logout');
 
         Route::resource('admin','AdminController');
+
+        Route::get('lang/{lang}',function ($lang){
+            session()->put('lang',$lang);
+            return back();
+         });
+     
+          Route::post('delete/all','AdminController@destroy');
+         Route::get('create','AdminController@create');
+
+
+        //send email
+        Route::get('send','AdminController@send');
+        Route::post('send','AdminController@sendPost');
     });
 
-    Route::get('lang/{lang}',function ($lang){
-       session()->put('lang',$lang);
-       return back();
-    });
 
-    Route::post('delete/all','AdminController@destroy');
-    Route::get('create','AdminController@create');
 
 });
 

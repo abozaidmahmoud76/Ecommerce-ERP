@@ -8,12 +8,16 @@
     </div>
     <!-- /.box-header -->
     <div class="box-body">
+            @if(session()->has('success'))
+            <p class="alert alert-success">{{session()->get('success')}}</p>
+            @endif
         <form id="formDeleteAdmin" method="post" action="{{url('admin/delete/all')}}">
             {{ csrf_field() }}
         {!! $dataTable->table([
             'class'=>'dataTable table table-bordered '
         ],true) !!}
         </form>
+        
     </div>
 
 
@@ -29,7 +33,6 @@
                     <h3>delete <span class="item_deleted_count"></span> recorde</h3>
                 </div>
                 <div class="modal-body">
-
                     <p hidden class="alert alert-danger no_record_delete">{{__('admin.select_record_to_delete')}} </p>
                     <p hidden class="alert alert-danger record_delete">are you sure to delete <span class="item_deleted_count text-gray"></span> recorde</p>
                 </div>

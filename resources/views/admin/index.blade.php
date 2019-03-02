@@ -5,7 +5,6 @@
 
         @include('admin.layouts.nav')
         @include('admin.layouts.message')
-
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
             <!-- Content Header (Page header) -->
@@ -23,7 +22,6 @@
             <section class="content">
                 @include('admin.layouts.message')
                 @yield('content')
-
             </section>
         </div>
 
