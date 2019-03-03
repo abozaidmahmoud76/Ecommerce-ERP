@@ -2,9 +2,11 @@
 
 return[
    'login'=>'Login',
+    'home'=>'home',
    'adminpanel'=>'Admin Panel',
    'dashbord_name'=>'Dashbord',
-    'admin_acount'=>'Admin Account',
+   'admin_account'=>'member account',
+   'user_account'=>'User Account',
    'invalid_login'=>'Invalid email or password',
    'forget_password'=>'Reset password',
    'reset_password'=>'password reset successfully',
@@ -35,7 +37,11 @@ return[
     'no'=>'close',
     'select_record_to_delete'=>'please select records to delete',
     'add'=>'create new member',
-    'submit'=>'create'
+    'submit'=>'create',
+    'user'=>'user',
+    'vendor'=>'vendor',
+    'company'=>'company',
+    'level'=>'level',
 
 
 

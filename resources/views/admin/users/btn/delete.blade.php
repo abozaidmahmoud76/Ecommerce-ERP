@@ -12,9 +12,9 @@
       </div>
       <div class="modal-body">
       <p class="alert alert-danger">are you sure to delete<span> {{$name}}</span></p>
-      </div>hel
+      </div>
       <div class="modal-footer">
-      <form method="post" action="{{route('admin.destroy',$id)}}">
+      <form method="post" action="{{route('user.destroy',$id)}}">
             {{csrf_field()}}
             {{method_field('delete')}}
             <button type="submit" class="btn btn-primary">{{__('admin.yes')}}</button>

@@ -242,7 +242,8 @@
 <script src="{{asset('design/AdminLTE/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{asset('design/AdminLTE/dist/js/demo.js')}}"></script>
-
+<!-- Select2 -->
+<script src="{{asset('design/AdminLTE/bower_components/select2/dist/js/select2.full.min.js')}}"></script>
 
 
 <link rel="stylesheet" href="{{asset('design/AdminLTE/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css')}}">

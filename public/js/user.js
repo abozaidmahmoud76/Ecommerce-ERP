@@ -35,15 +35,14 @@ $(window).on('load',function () {
 
     //submit form delete
     $('.submitBtn_del').on('click',function () {
-        $('#formDeleteAdmin').submit();
+        $('#formDeleteUser').submit();
     });
 
     //add new member
 
     $('.add_member').on('click',function () {
-       window.location.href='admin/create';
+       window.location.href='user/create';
     });
-
 
 
 
