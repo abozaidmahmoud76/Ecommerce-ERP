@@ -2,12 +2,18 @@
 
 return[
    'login'=>'تسجيل دخول',
+    'home'=>'الرئيسيه',
    'adminpanel'=>'لوحه التحكم',
    'dashbord_name'=>'وحه التحكم',
+<<<<<<< HEAD
    'admin_account'=>'حساب الادمن',
    'user_account'=>'حساب العضو',
+=======
+   'admin_account'=>'حساب المشرفين',
+   'user_account'=> 'حساب الاعضاء',
+>>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
    'invalid_login'=>'البريد الالكترونى او الباسورد غير صحيح',
-   'forget_password'=>'الباسورد',
+   'forget_password'=>'الباسورد', 
    'reset_password'=>'م تغير الباسورد بنجاح',
    'reset_password_new'=>'انشتء باسورد جديد',
     'pdf'=>'طباعه',
@@ -38,9 +44,16 @@ return[
     'select_record_to_delete'=>'من فضلك اختر الحقول التى تريد مسحها',
     'add'=>'اضافه عضو جديد',
     'submit'=>'انشاء',
+<<<<<<< HEAD
     'name'=>'الاسم',
     'email'=>'البريد الالكترونى',
     'password'=>'الرقم السرى',
     'back'=>'رجوع',
+=======
+    'user'=>'عضو',
+    'vendor'=>'متجر',
+    'company'=>'شركه',
+    'level'=>'المستوى',
+>>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
 
 ];

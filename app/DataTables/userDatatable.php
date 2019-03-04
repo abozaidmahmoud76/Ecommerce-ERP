@@ -57,7 +57,11 @@ class userDatatable extends DataTable
                     ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("admin.excel") .'</i> '],
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
                     ['className' => 'btn btn-danger delBtn' , 'text' => '<i class="fa fa-trash">delete</i>'],
+<<<<<<< HEAD
                     ['className' => 'btn btn-primary add_member','action'=>'add()' , 'text' => '<i class="fa fa-plus">'.__("admin.add").'</i>'],
+=======
+                    ['className' => 'btn btn-primary add_member' , 'text' => '<i class="fa fa-plus">'.__("admin.add").'</i>'],
+>>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
 
                 ],
 //                'initComplete'=>'function () {
@@ -98,6 +102,10 @@ class userDatatable extends DataTable
             'id',
             'name',
             'email',
+<<<<<<< HEAD
+=======
+            'level',
+>>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
             [
                 'title'=>__('admin.created_at'),
                 'name'=>'created_at',

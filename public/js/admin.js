@@ -48,7 +48,10 @@ $(window).on('load',function () {
 
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
 });
 
 

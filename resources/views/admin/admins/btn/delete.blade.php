@@ -12,7 +12,7 @@
       </div>
       <div class="modal-body">
       <p class="alert alert-danger">are you sure to delete<span> {{$name}}</span></p>
-      </div>
+      </div>hel
       <div class="modal-footer">
       <form method="post" action="{{route('admin.destroy',$id)}}">
             {{csrf_field()}}

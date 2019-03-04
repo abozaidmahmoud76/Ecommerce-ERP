@@ -43,15 +43,20 @@
 
 
 
+<<<<<<< HEAD
         <ul class="sidebar-menu" data-widget="tree">
+=======
+        <ul class="sidebar-menu " data-widget="tree">
+>>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
             <li class="treeview">
                 <a href="#">
-                    <i class="fa fa-files-o"></i>
-                    <span>{{trans('admin.dashbord_name')}}</span>
+                    <i class="fa fa-tachometer"></i>
+                    <span>{{trans('admin.home')}}</span>
                 </a>
             </li>
 
             <li class="active treeview">
+<<<<<<< HEAD
                 <a href="#">
                     <i class="fa fa-users"></i> <span>{{trans('admin.admin_account')}}</span>
                     <span class="pull-right-container">
@@ -73,6 +78,38 @@
 
 
 
+=======
+              <ul class="treeview-menu">
+
+                    <li class="active treeview">
+                        <a href="#">
+                            <i class="fa fa-users"></i> <span>{{trans('admin.admin_account')}}</span>
+                            <span class="pull-right-container">
+                                 <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu">
+                            <li class="active"><a href="{{adminUrl('admin')}}"><i class="fa fa-users"></i>{{trans('admin.admin_account')}}  </a></li>
+                        </ul>
+                    </li>
+
+                  <li class="active treeview">
+                      <a href="#">
+                          <i class="fa fa-users"></i> <span> user infi </span>
+                          <span class="pull-right-container">
+                                 <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                      </a>
+                      <ul class="treeview-menu">
+                          <li class="active"><a href="{{adminUrl('admin')}}"><i class="fa fa-users"></i>arabic user  </a></li>
+                      </ul>
+                  </li>
+
+
+
+              </ul>
+            </li>
+>>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
         </ul>
     </section>
     <!-- /.sidebar -->
