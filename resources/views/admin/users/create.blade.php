@@ -5,7 +5,7 @@
     <p class="alert alert-success ">{{session('success')}}</p>
 @endif
 
-    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('admin.store')}}">
+    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('user.store')}}">
         {{ csrf_field() }}
         <div class="form-group">
             <label>{{__('admin.name')}}</label>
@@ -47,7 +47,7 @@
             @endif
         </div>
             <button type="submit" class="btn btn-primary">{{__('admin.submit')}}</button>
-        <a href="{{url(adminUrl('admin'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> {{__('admin.back')}}</a>
+        <a href="{{url(adminUrl('user'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> {{__('admin.back')}}</a>
 
     </form>
 

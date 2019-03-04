@@ -44,24 +44,34 @@
 
 
         <ul class="sidebar-menu" data-widget="tree">
-            <li class="header">MAIN NAVIGATION</li>
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>
                     <span>{{trans('admin.dashbord_name')}}</span>
                 </a>
             </li>
+
             <li class="active treeview">
                 <a href="#">
-                    <i class="fa fa-users"></i> <span>{{trans('admin.admin_acount')}}</span>
+                    <i class="fa fa-users"></i> <span>{{trans('admin.admin_account')}}</span>
                     <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+                         <i class="fa fa-angle-left pull-right"></i>
+                     </span>
                 </a>
                 <ul class="treeview-menu">
-                    <li class="active"><a href="{{adminUrl('admin')}}"><i class="fa fa-users"></i>{{trans('admin.admin_acount')}}  </a></li>
+                    <li class="active"><a href="{{adminUrl('admin')}}"><i class="fa fa-users"></i>{{trans('admin.admin_account')}}  </a></li>
+                </ul>
+
+                <ul class="treeview-menu">
+                    <li class="active"><a href="{{adminUrl('user')}}"><i class="fa fa-users"></i>{{trans('admin.user_account')}}  </a></li>
                 </ul>
             </li>
+
+
+
+
+
+
 
         </ul>
     </section>

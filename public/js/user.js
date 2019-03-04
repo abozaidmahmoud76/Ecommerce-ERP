@@ -42,7 +42,7 @@ $(window).on('load',function () {
 
     $(document).on('click','.add_member',function () {
 
-        window.location.href='admin/create';
+        window.location.href='user/create';
     });
 
 

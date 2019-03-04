@@ -5,7 +5,7 @@
     <p class="alert alert-success ">{{session('success')}}</p>
 @endif
 
-    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('admin.update',$item->id)}}">
+    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('user.update',$item->id)}}">
         {{ csrf_field() }}
         {{method_field('Patch')}}
         <div class="form-group">
@@ -48,7 +48,7 @@
             @endif
         </div>
             <button type="submit" class="btn btn-primary">{{__('admin.update')}}</button>
-        <a href="{{url(adminUrl('admin'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> {{__('admin.back')}}</a>
+        <a href="{{url(adminUrl('user'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> {{__('admin.back')}}</a>
     </form>
 
 

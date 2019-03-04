@@ -2,10 +2,10 @@
 
 namespace App\DataTables;
 
-use App\Model\Admin;
+use App\User;
 use Yajra\DataTables\Services\DataTable;
 
-class adminDatatable extends DataTable
+class userDatatable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,9 +16,9 @@ class adminDatatable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->addColumn('edit', 'admin.admins.btn.edit')
-            ->addColumn('delete', 'admin.admins.btn.delete')
-            ->addColumn('checkbox', 'admin.admins.btn.checkbox')
+            ->addColumn('edit', 'admin.users.btn.edit')
+            ->addColumn('delete', 'admin.users.btn.delete')
+            ->addColumn('checkbox', 'admin.users.btn.checkbox')
             ->rawColumns(['edit','delete','checkbox']);
     }
 
@@ -30,7 +30,7 @@ class adminDatatable extends DataTable
      */
     public function query()
     {
-        return Admin::query();
+        return User::query();
     }
 
 
@@ -57,7 +57,7 @@ class adminDatatable extends DataTable
                     ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("admin.excel") .'</i> '],
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
                     ['className' => 'btn btn-danger delBtn' , 'text' => '<i class="fa fa-trash">delete</i>'],
-                    ['className' => 'btn btn-primary add_member' , 'text' => '<i class="fa fa-plus">'.__("admin.add").'</i>'],
+                    ['className' => 'btn btn-primary add_member','action'=>'add()' , 'text' => '<i class="fa fa-plus">'.__("admin.add").'</i>'],
 
                 ],
 //                'initComplete'=>'function () {

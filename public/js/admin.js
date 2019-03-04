@@ -40,9 +40,12 @@ $(window).on('load',function () {
 
     //add new member
 
-    $('.add_member').on('click',function () {
-       window.location.href='admin/create';
+    $(document).on('click','.add_member',function () {
+
+        window.location.href='admin/create';
     });
+
+
 
 
 

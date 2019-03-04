@@ -8,7 +8,7 @@
     <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('admin.store')}}">
         {{ csrf_field() }}
         <div class="form-group">
-            <label>Username:</label>
+            <label>{{__('admin.name')}}</label>
 
             <div class="input-group">
                 <div class="input-group-addon">
@@ -22,7 +22,7 @@
         </div>
 
         <div class="form-group">
-            <label>Email</label>
+            <label>{{__('admin.email')}}</label>
 
             <div class="input-group ">
                 <div class="input-group-addon">
@@ -35,7 +35,7 @@
           @endif
         </div>
         <div class="form-group">
-            <label>Password</label>
+            <label>{{__('admin.password')}}</label>
             <div class="input-group">
                 <div class="input-group-addon">
                     <i class="fa fa-key"></i>
@@ -47,7 +47,7 @@
             @endif
         </div>
             <button type="submit" class="btn btn-primary">{{__('admin.submit')}}</button>
-        <a href="{{url(adminUrl('admin'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> Back</a>
+        <a href="{{url(adminUrl('admin'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> {{__('admin.back')}}</a>
 
     </form>
 

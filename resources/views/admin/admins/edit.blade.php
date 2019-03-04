@@ -9,7 +9,7 @@
         {{ csrf_field() }}
         {{method_field('Patch')}}
         <div class="form-group">
-            <label>Username:</label>
+            <label>{{__('admin.name')}}</label>
 
             <div class="input-group">
                 <div class="input-group-addon">
@@ -23,7 +23,7 @@
         </div>
 
         <div class="form-group">
-            <label>Email</label>
+            <label>{{__('admin.email')}}</label>
 
             <div class="input-group ">
                 <div class="input-group-addon">
@@ -36,7 +36,7 @@
           @endif
         </div>
         <div class="form-group">
-            <label>Password</label>
+            <label>{{__('admin.password')}}</label>
             <div class="input-group">
                 <div class="input-group-addon">
                     <i class="fa fa-key"></i>
@@ -47,8 +47,8 @@
                 <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('password')}}</p>
             @endif
         </div>
-            <button type="submit" class="btn btn-primary">{{__('admin.submit')}}</button>
-        <a href="{{url(adminUrl('admin'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> Back</a>
+            <button type="submit" class="btn btn-primary">{{__('admin.update')}}</button>
+        <a href="{{url(adminUrl('admin'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> {{__('admin.back')}}</a>
     </form>
 
 
