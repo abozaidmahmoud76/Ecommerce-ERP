@@ -53,10 +53,10 @@ class adminDatatable extends DataTable
                 'lengthMenu' => [[10, 25, 50, 100], [10, 25, 50, 'All Record']],
                 'buttons'    => [
                     ['extend' => 'print', 'className' => 'btn btn-danger', 'text' => '<i class="fa fa-print">'. __("admin.pdf") .'</i>'],
-                    ['extend' => 'csv', 'className' => 'btn btn-info', 'text' => '<i class="fa fa-file">'.__("admin.csc") .'</i> '],
+                    ['extend' => 'csv', 'className' => 'btn btn-info', 'text' => '<i class="fa fa-file">'.__("admin.csv") .'</i> '],
                     ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("admin.excel") .'</i> '],
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
-                    ['className' => 'btn btn-danger delBtn' , 'text' => '<i class="fa fa-trash">delete</i>'],
+                    ['className' => 'btn btn-danger delBtn' , 'text' => '<i class="fa fa-trash">'.__('admin.delete').'</i>'],
                     ['className' => 'btn btn-primary add_member' , 'text' => '<i class="fa fa-plus">'.__("admin.add").'</i>'],
 
                 ],
@@ -87,7 +87,7 @@ class adminDatatable extends DataTable
     {
         return [
             [
-                'title'=>'<input type="checkbox" class="check_all" onclick="check_all()">',
+                'title'=>'<input id="check_all" type="checkbox" class="check_all"  >',
                 'name'=>'checkbox',
                 'data'=>'checkbox',
                 'printable'=>false,
@@ -95,9 +95,23 @@ class adminDatatable extends DataTable
                 'exportable'=>false,
                 'orderable'=>false
             ],
-            'id',
-            'name',
-            'email',
+            [
+                'title'=>'#',
+                'name'=>'id',
+                'data'=>'id',
+            ],
+
+            [
+                'title'=>__('admin.name'),
+                'name'=>'name',
+                'data'=>'name',
+            ],
+
+            [
+                'title'=>__('admin.email'),
+                'name'=>'email',
+                'data'=>'email',
+            ],
             [
                 'title'=>__('admin.created_at'),
                 'name'=>'created_at',

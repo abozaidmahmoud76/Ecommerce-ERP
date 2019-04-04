@@ -44,12 +44,11 @@
         </form>
 
 
-
             <div id="jquery-accordion-menu" class="jquery-accordion-menu">
                 <ul>
-                    <li class="active"><a href="{{adminUrl('/')}}"><i class="fa fa-dashboard"></i>{{__('admin.home')}} </a></li>
+                   <li class="active"><a href="{{adminUrl('/')}}">{{__('admin.home')}} </a></li>
                     {{--<li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">12 </span></li>--}}
-                    <li><a href="{{adminUrl('admin')}}"><i class="fa fa-users"></i>{{__('admin.admin_account')}} </a>
+                    <li><a href="{{adminUrl('admin')}}">{{__('admin.admin_account')}} </a>
                         <ul class="submenu">
                             <li><a href="#">
                                     Web Design </a></li>
@@ -62,7 +61,7 @@
                             <li><a href="#">Consulting </a></li>
                         </ul>
                     </li>
-                    <li><a href="#"><i class="fa fa-key"></i> {{__('admin.user_account')}} </a>
+                    <li><a href="#"> {{__('admin.user_account')}} </a>
                         <ul class="submenu">
                             <li class="fa fa-user"><a href="{{adminUrl('user')}}">{{__('admin.user')}} </a></li>
                             <li class="fa fa-user-shield"><a href="#">{{__('admin.vendor')}} </a></li>
@@ -71,26 +70,6 @@
                     </li>
                 </ul>
             </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     </section>
     <!-- /.sidebar -->

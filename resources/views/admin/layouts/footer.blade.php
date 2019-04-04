@@ -254,5 +254,4 @@
 <script src="{{asset('design/admin/js/sidemenu_style.js')}}"></script>
 
 
-
-@stack('css')
+@stack('js')

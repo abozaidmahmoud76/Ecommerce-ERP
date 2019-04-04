@@ -8,11 +8,11 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">{{__('admin.delete')}}</h4>
       </div>
       <div class="modal-body">
       <p class="alert alert-danger">are you sure to delete<span> {{$name}}</span></p>
-      </div>hel
+      </div>
       <div class="modal-footer">
       <form method="post" action="{{route('admin.destroy',$id)}}">
             {{csrf_field()}}

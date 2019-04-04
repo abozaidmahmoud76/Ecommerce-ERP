@@ -1,17 +1,7 @@
 
 
 $(window).on('load',function () {
-
     //check all checkbox
-    function check_all() {
-        $('.item_checkbox').each(function () {
-            if($('.check_all').is(':checked')){
-                $(this).attr('checked',true);
-            }else{
-                $(this).attr('checked',false);
-            }
-        });
-    }
 
 
     //delete record
@@ -33,6 +23,16 @@ $(window).on('load',function () {
 
     });
 
+    $('#check_all').on('click',function () {
+        $('.item_checkbox').each(function () {
+            if($('.check_all').is(':checked')){
+                $(this).attr('checked',true);
+            }else{
+                $(this).attr('checked',false);
+            }
+        });
+    });
+
     //submit form delete
     $('.submitBtn_del').on('click',function () {
         $('#formDeleteAdmin').submit();
@@ -41,8 +41,7 @@ $(window).on('load',function () {
     //add new member
 
     $(document).on('click','.add_member',function () {
-
-        window.location.href='test/create';
+        window.location.href='admin/create';
     });
 
 

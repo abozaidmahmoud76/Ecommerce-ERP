@@ -3,7 +3,7 @@
 $(window).on('load',function () {
 
     //check all checkbox
-    function check_all() {
+    $('#check_all').on('click',function () {
         $('.item_checkbox').each(function () {
             if($('.check_all').is(':checked')){
                 $(this).attr('checked',true);
@@ -11,8 +11,7 @@ $(window).on('load',function () {
                 $(this).attr('checked',false);
             }
         });
-    }
-
+    })
 
     //delete record
     $(document).on('click','.delBtn',function () {

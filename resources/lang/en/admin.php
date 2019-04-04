@@ -2,11 +2,12 @@
 
 return[
    'login'=>'Login',
-    'home'=>'home',
+   'home'=>'home',
    'adminpanel'=>'Admin Panel',
    'dashbord_name'=>'Dashbord',
    'admin_account'=>'member account',
    'user_account'=>'User Account',
+   'password'=>'Password',
    'invalid_login'=>'Invalid email or password',
    'forget_password'=>'Reset password',
    'reset_password'=>'password reset successfully',
@@ -42,10 +43,11 @@ return[
     'user'=>'user',
     'vendor'=>'vendor',
     'company'=>'company',
-    'level'=>'level',
+    'level'=>'privilege',
     'name'=>'name',
     'email'=>'email',
     'passwoed'=>'password',
+    'back'=>'Back',
 
 
 
