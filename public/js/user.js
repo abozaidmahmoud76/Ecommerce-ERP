@@ -35,32 +35,20 @@ $(window).on('load',function () {
 
     //submit form delete
     $('.submitBtn_del').on('click',function () {
-<<<<<<< HEAD
-        $('#formDeleteAdmin').submit();
-=======
+
         $('#formDeleteUser').submit();
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
     });
 
     //add new member
 
-<<<<<<< HEAD
-    $(document).on('click','.add_member',function () {
 
-        window.location.href='user/create';
-=======
     $('.add_member').on('click',function () {
        window.location.href='user/create';
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
     });
 
 
 
-<<<<<<< HEAD
 
-
-=======
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
 });
 
 

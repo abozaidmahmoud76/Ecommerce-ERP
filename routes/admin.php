@@ -23,34 +23,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::get('lang/{lang}',function ($lang){
             session()->put('lang',$lang);
             return back();
-<<<<<<< HEAD
-        });
 
-        Route::any('logout','AdminAuth@logout');
-
-
-        //admin routes
-        Route::resource('admin','AdminController');
-        Route::get('create','AdminController@create');
-
-
-
-
-        //user routes
-        Route::resource('user','UserController');
-        Route::get('user/create','UserController@create');
-        Route::post('delete/all','UserController@destroy');
-
-
-     
-
-
-
-
-//        //send email
-//        Route::get('send','AdminController@send');
-//        Route::post('send','AdminController@sendPost');
-=======
          });
 
         Route::any('logout','AdminAuth@logout');
@@ -67,7 +40,6 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         // //send email
         // Route::get('send','AdminController@send');
         // Route::post('send','AdminController@sendPost');
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
     });
 
 

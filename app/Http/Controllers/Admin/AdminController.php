@@ -17,8 +17,8 @@ class AdminController extends Controller
         //     ['text'=>'admin.edit'],
         //    ['name'=>'my custom name'],
         //     function($msg){
-        //         $msg->to('m.abuzaid@mu.edu.sa','hoda abozaid')->subject('test sent mail to outlook');
-        //         $msg->from('abozaidmahmoud76@gmail.com','test user');
+        //         $msg->to('m.abuzaid@mu.edu.sa','hoda abozaid')->subject('admin sent mail to outlook');
+        //         $msg->from('abozaidmahmoud76@gmail.com','admin user');
         //     }
      //   );
 
@@ -31,8 +31,8 @@ class AdminController extends Controller
         //     ['text'=>'admin.edit'],
         //    ['name'=>'my custom name'],
         //     function($msg){
-        //         $msg->to('m.abuzaid@mu.edu.sa','hoda abozaid')->subject('test sent mail to outlook');
-        //         $msg->from('abozaidmahmoud76@gmail.com','test user');
+        //         $msg->to('m.abuzaid@mu.edu.sa','hoda abozaid')->subject('admin sent mail to outlook');
+        //         $msg->from('abozaidmahmoud76@gmail.com','admin user');
         //     }
      //   );
 
@@ -43,7 +43,7 @@ class AdminController extends Controller
 
     public function index(adminDatatable $admin)
     {
-        return $admin->render('admin.admins.index',['title'=>'admin Datatable']);
+        return $admin->render('admin.admins.listAdmins',['title'=>'admin datatable']);
     }
 
 

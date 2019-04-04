@@ -1,3 +1,5 @@
+
+
 <header class="main-header">
     <!-- Logo -->
     <a href="index2.html" class="logo">
@@ -43,74 +45,53 @@
 
 
 
-<<<<<<< HEAD
-        <ul class="sidebar-menu" data-widget="tree">
-=======
-        <ul class="sidebar-menu " data-widget="tree">
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
-            <li class="treeview">
-                <a href="#">
-                    <i class="fa fa-tachometer"></i>
-                    <span>{{trans('admin.home')}}</span>
-                </a>
-            </li>
-
-            <li class="active treeview">
-<<<<<<< HEAD
-                <a href="#">
-                    <i class="fa fa-users"></i> <span>{{trans('admin.admin_account')}}</span>
-                    <span class="pull-right-container">
-                         <i class="fa fa-angle-left pull-right"></i>
-                     </span>
-                </a>
-                <ul class="treeview-menu">
-                    <li class="active"><a href="{{adminUrl('admin')}}"><i class="fa fa-users"></i>{{trans('admin.admin_account')}}  </a></li>
-                </ul>
-
-                <ul class="treeview-menu">
-                    <li class="active"><a href="{{adminUrl('user')}}"><i class="fa fa-users"></i>{{trans('admin.user_account')}}  </a></li>
-                </ul>
-            </li>
-
-
-
-
-
-
-
-=======
-              <ul class="treeview-menu">
-
-                    <li class="active treeview">
-                        <a href="#">
-                            <i class="fa fa-users"></i> <span>{{trans('admin.admin_account')}}</span>
-                            <span class="pull-right-container">
-                                 <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                        </a>
-                        <ul class="treeview-menu">
-                            <li class="active"><a href="{{adminUrl('admin')}}"><i class="fa fa-users"></i>{{trans('admin.admin_account')}}  </a></li>
+            <div id="jquery-accordion-menu" class="jquery-accordion-menu">
+                <ul>
+                    <li class="active"><a href="{{adminUrl('/')}}"><i class="fa fa-dashboard"></i>{{__('admin.home')}} </a></li>
+                    {{--<li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">12 </span></li>--}}
+                    <li><a href="{{adminUrl('admin')}}"><i class="fa fa-users"></i>{{__('admin.admin_account')}} </a>
+                        <ul class="submenu">
+                            <li><a href="#">
+                                    Web Design </a></li>
+                            <li><a href="#">Hosting </a></li>
+                            <li><a href="#">Design </a>
+                                <ul class="submenu">
+                                    <li><a href="#">Graphics </a></li>
+                                </ul>
+                            </li>
+                            <li><a href="#">Consulting </a></li>
                         </ul>
                     </li>
-
-                  <li class="active treeview">
-                      <a href="#">
-                          <i class="fa fa-users"></i> <span> user infi </span>
-                          <span class="pull-right-container">
-                                 <i class="fa fa-angle-left pull-right"></i>
-                            </span>
-                      </a>
-                      <ul class="treeview-menu">
-                          <li class="active"><a href="{{adminUrl('admin')}}"><i class="fa fa-users"></i>arabic user  </a></li>
-                      </ul>
-                  </li>
+                    <li><a href="#"><i class="fa fa-key"></i> {{__('admin.user_account')}} </a>
+                        <ul class="submenu">
+                            <li class="fa fa-user"><a href="{{adminUrl('user')}}">{{__('admin.user')}} </a></li>
+                            <li class="fa fa-user-shield"><a href="#">{{__('admin.vendor')}} </a></li>
+                            <li class="fa fa-building"><a href="#">{{__('admin.company')}} </a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
 
 
 
-              </ul>
-            </li>
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
-        </ul>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     </section>
     <!-- /.sidebar -->
 </aside>

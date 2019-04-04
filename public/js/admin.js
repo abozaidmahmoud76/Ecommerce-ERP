@@ -42,16 +42,13 @@ $(window).on('load',function () {
 
     $(document).on('click','.add_member',function () {
 
-        window.location.href='admin/create';
+        window.location.href='test/create';
     });
 
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
 });
 
 

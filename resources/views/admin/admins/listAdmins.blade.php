@@ -2,7 +2,6 @@
 
 @section('content')
 
-
 <div class="box">
     <div class="box-header">
     </div>

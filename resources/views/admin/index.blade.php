@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
     @include('admin.layouts.header')
+
     <body>
 
         @include('admin.layouts.nav')

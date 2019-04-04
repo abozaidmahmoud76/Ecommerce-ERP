@@ -11,11 +11,8 @@
             @if(session()->has('success'))
             <p class="alert alert-success">{{session()->get('success')}}</p>
             @endif
-<<<<<<< HEAD
-        <form id="formDeleteAdmin" method="post" action="{{url('admin/delete/all')}}">
-=======
+
         <form id="formDeleteUser" method="post" action="{{adminUrl('user/delete/all')}}">
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
             {{ csrf_field() }}
         {!! $dataTable->table([
             'class'=>'dataTable table table-bordered '

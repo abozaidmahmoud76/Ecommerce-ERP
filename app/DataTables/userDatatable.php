@@ -16,9 +16,9 @@ class userDatatable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->addColumn('edit', 'admin.users.btn.edit')
-            ->addColumn('delete', 'admin.users.btn.delete')
-            ->addColumn('checkbox', 'admin.users.btn.checkbox')
+            ->addColumn('edit', 'test.users.btn.edit')
+            ->addColumn('delete', 'test.users.btn.delete')
+            ->addColumn('checkbox', 'test.users.btn.checkbox')
             ->rawColumns(['edit','delete','checkbox']);
     }
 
@@ -52,16 +52,12 @@ class userDatatable extends DataTable
                 'dom'        => 'Blfrtip',
                 'lengthMenu' => [[10, 25, 50, 100], [10, 25, 50, 'All Record']],
                 'buttons'    => [
-                    ['extend' => 'print', 'className' => 'btn btn-danger', 'text' => '<i class="fa fa-print">'. __("admin.pdf") .'</i>'],
-                    ['extend' => 'csv', 'className' => 'btn btn-info', 'text' => '<i class="fa fa-file">'.__("admin.csc") .'</i> '],
-                    ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("admin.excel") .'</i> '],
+                    ['extend' => 'print', 'className' => 'btn btn-danger', 'text' => '<i class="fa fa-print">'. __("test.pdf") .'</i>'],
+                    ['extend' => 'csv', 'className' => 'btn btn-info', 'text' => '<i class="fa fa-file">'.__("test.csc") .'</i> '],
+                    ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("test.excel") .'</i> '],
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
                     ['className' => 'btn btn-danger delBtn' , 'text' => '<i class="fa fa-trash">delete</i>'],
-<<<<<<< HEAD
-                    ['className' => 'btn btn-primary add_member','action'=>'add()' , 'text' => '<i class="fa fa-plus">'.__("admin.add").'</i>'],
-=======
-                    ['className' => 'btn btn-primary add_member' , 'text' => '<i class="fa fa-plus">'.__("admin.add").'</i>'],
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
+                    ['className' => 'btn btn-primary add_member' , 'text' => '<i class="fa fa-plus">'.__("test.add").'</i>'],
 
                 ],
 //                'initComplete'=>'function () {
@@ -102,25 +98,22 @@ class userDatatable extends DataTable
             'id',
             'name',
             'email',
-<<<<<<< HEAD
-=======
             'level',
->>>>>>> dee9722b63078bb34fcfccb4ebc0c7fb25303f2d
             [
-                'title'=>__('admin.created_at'),
+                'title'=>__('test.created_at'),
                 'name'=>'created_at',
                 'data'=>'created_at',
             ],
 
             [
-                'title'=>__('admin.updated_at'),
+                'title'=>__('test.updated_at'),
                 'name'=>'updated_at',
                 'data'=>'updated_at',
             ],
 
 
             [
-                'title'=>__('admin.edit'),
+                'title'=>__('test.edit'),
                 'name'=>'edit',
                 'data'=>'edit',
                 'printable'=>false,
@@ -129,7 +122,7 @@ class userDatatable extends DataTable
                 'orderable'=>false
             ],
             [
-                'title'=>__('admin.delete'),
+                'title'=>__('test.delete'),
                 'name'=>'delete',
                 'data'=>'delete',
                 'printable'=>false,
