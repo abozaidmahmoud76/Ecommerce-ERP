@@ -28,6 +28,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
 
         Route::any('logout','AdminAuth@logout');
 
+//        settings route
+        Route::get('website/settings','SettingsController@index');
+        Route::post('website/settings','SettingsController@update_settings');
+
         Route::resource('admin','AdminController');
         Route::post('delete/all','AdminController@destroy');
         Route::get('create','AdminController@create');

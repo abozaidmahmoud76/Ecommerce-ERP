@@ -58,16 +58,12 @@ class UserController extends Controller
         return view('admin.users.create',['title'=>__('admin.add')]);
     }
 
-
-
-
-
     public function store(Request $req)
     {
 
        $validate=$this->validate($req,[
            'name'=>'required|string|min:3',
-           'email'=>'required|email|unique:admins',
+           'email'=>'required|email|unique:users',
            'level'=>'required|in:user,vendor,company',
            'password'=>'required|min:3|max:55',
 

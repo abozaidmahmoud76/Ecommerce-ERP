@@ -8,6 +8,27 @@ if(!function_exists('adminUrl')) {
     }
 }
 
+//upload files and img
+if(!function_exists('upload')) {
+    function upload($file,$folder)
+    {
+        $filename=$file->getClientOriginalName().'_'.time();
+        $dest=public_path('/upload');
+        if(!file_exists($dest)){
+            mkdir($dest,0777,true);
+        }
+
+        if(!file_exists($dest.'/'.$folder)){
+            mkdir($dest.'/'.$folder,0777,true);
+        }
+
+        $file->move($dest.'/'.$folder,$filename);
+
+
+
+    }
+}
+
 
 //return guard admin
 if(!function_exists('admin')) {

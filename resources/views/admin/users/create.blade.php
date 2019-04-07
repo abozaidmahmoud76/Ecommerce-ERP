@@ -39,12 +39,12 @@
         </div>
 
         <div class="form-group">
-            <label>{{__('test')}}</label>
+            <label>{{__('admin.level')}}</label>
             <select name="level" value="{{old('level')}}" class="form-control select2" style="width: 100%;">
                 <option selected disabled>choose</option>
                 <option value="user">{{__('admin.user')}}</option>
                 <option value="vendor">{{__('admin.vendor')}}</option>
-                <option value="company">{{__('test')}}</option>
+                <option value="company">{{__('admin.company')}}</option>
             </select>
             @if($errors->has('level'))
                 <p class="alert alert-danger error"><i class="fa fa-warning "></i> {{$errors->first('level')}}</p>

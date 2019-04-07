@@ -19,7 +19,8 @@ class userDatatable extends DataTable
             ->addColumn('edit', 'admin.users.btn.edit')
             ->addColumn('delete', 'admin.users.btn.delete')
             ->addColumn('checkbox', 'admin.users.btn.checkbox')
-            ->rawColumns(['edit','delete','checkbox']);
+            ->addColumn('level', 'admin.users.btn.level')
+            ->rawColumns(['edit','delete','checkbox','level']);
     }
 
     /**
@@ -30,7 +31,11 @@ class userDatatable extends DataTable
      */
     public function query()
     {
-        return User::query();
+        return User::query()->where(function ($q){
+            if(request()->has('level')){
+                $q->where('level',request('level'));
+            }
+        });
     }
 
 
@@ -46,6 +51,7 @@ class userDatatable extends DataTable
         return $this->builder()
                     ->columns($this->getColumns())
                     ->minifiedAjax()
+
 //                    ->addAction(['width' => '80px'])
 //                    ->parameters($this->getBuilderParameters());
             ->parameters([
