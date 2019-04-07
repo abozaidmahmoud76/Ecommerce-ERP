@@ -64,6 +64,7 @@ return[
     'en'=>'English',
     'message_maintenance'=>'message_maintenance',
     'save'=>'save',
+    'settings'=>'settings',
 
 
 

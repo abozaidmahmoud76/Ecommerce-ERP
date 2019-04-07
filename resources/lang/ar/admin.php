@@ -63,5 +63,6 @@ return[
     'en'=>'انجليزى',
     'message_maintenance'=>'رساله تنبيه الصيانه',
     'save'=>'حفظ',
+    'settings'=>'الاعدادات',
 
 ];

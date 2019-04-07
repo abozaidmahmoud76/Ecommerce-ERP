@@ -1,5 +1,5 @@
 <?php
-
+use App\Model\Settings;
 //define adminUrl fun for dynamic url for admin.
 if(!function_exists('adminUrl')) {
     function adminUrl($url = null)
@@ -7,6 +7,15 @@ if(!function_exists('adminUrl')) {
         return url('admin/' . $url);
     }
 }
+
+//return settings of website
+if(!function_exists('settings')) {
+    function settings()
+    {
+        return Settings::first();
+    }
+}
+
 
 //upload files and img
 if(!function_exists('upload')) {
@@ -23,9 +32,7 @@ if(!function_exists('upload')) {
         }
 
         $file->move($dest.'/'.$folder,$filename);
-
-
-
+        return $filename;
     }
 }
 
@@ -42,7 +49,7 @@ if(!function_exists('admin')) {
 if(!function_exists('lang')) {
     function lang()
     {
-        $lang=session()->has('lang')?session('lang'):'ar';
+        $lang=session()->has('lang')?session('lang'):settings()->main_lang;
         return $lang;
     }
 }

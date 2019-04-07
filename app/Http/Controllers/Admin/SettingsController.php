@@ -9,18 +9,33 @@ use App\Model\Settings;
 class SettingsController extends Controller
 {
    public function index(){
-       return view('admin.settings',['title'=>'settings']);
+       $item=Settings::orderBy('id','dsec')->first();
+       return view('admin.settings',['title'=>'settings','item'=>$item]);
    }
 
    public function update_settings(Request $req){
        $data=$req->except('_token','_method');
        if($req->has('logo')){
-           upload($req->logo,'settings');
+           $logo=upload($req->logo,'settings');
+           $data['logo']=$logo;
        }
-       Settings::orderBy('id','desc')->update($data);
+       if($req->has('icon')){
+           $icon=upload($req->icon,'settings');
+           $data['icon']=$icon;
+
+       }
+
+
+       if(empty(Settings::first())){
+           Settings::orderBy('id','desc')->create($data);
+
+       }else{
+           Settings::orderBy('id','desc')->update($data);
+
+       }
        session()->flash('success','row inserted');
-       return redirect(adminUrl('website/settings'));
-;
+       return redirect(adminUrl('lang/'.settings()->main_lang));
+
 
 
    }
