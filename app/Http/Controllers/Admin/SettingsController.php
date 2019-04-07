@@ -14,6 +14,10 @@ class SettingsController extends Controller
    }
 
    public function update_settings(Request $req){
+       $this->validate($req,[
+           'logo'=>v_image(),
+           'icon'=>v_image(),
+       ]);
        $data=$req->except('_token','_method');
        if($req->has('logo')){
            $logo=upload($req->logo,'settings');
@@ -24,11 +28,8 @@ class SettingsController extends Controller
            $data['icon']=$icon;
 
        }
-
-
        if(empty(Settings::first())){
            Settings::orderBy('id','desc')->create($data);
-
        }else{
            Settings::orderBy('id','desc')->update($data);
 

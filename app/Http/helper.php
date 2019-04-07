@@ -37,6 +37,18 @@ if(!function_exists('upload')) {
 }
 
 
+//validate image
+if(!function_exists('v_image')) {
+    function v_image($ext=null)
+    {
+        if($ext===null){
+            return 'image|mimes:jpg,jpeg,png';
+        }else{
+            return 'image|'.$ext;
+        }
+    }
+}
+
 //return guard admin
 if(!function_exists('admin')) {
     function admin()

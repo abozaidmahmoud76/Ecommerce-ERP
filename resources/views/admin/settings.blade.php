@@ -5,6 +5,7 @@
             <h3 class="box-title">{{ __('admin.settings') }}</h3>
         </div>
         <!-- /.box-header -->
+        {{dd(url(''))}}
         <div class="box-body">
             <form method="post" action="{{adminUrl('website/settings')}}" enctype="multipart/form-data">
                 {{csrf_field()}}
@@ -25,11 +26,17 @@
                 <label>{{__('admin.logo')}}</label>
                 <input type="file" name="logo" class="form-control">
                 <a target="_blank"  href="{{asset('upload/settings/'.@$item->logo)}}">Logo</a>
+                @if($errors->has('logo'))
+                    <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('logo')}}</p>
+                @endif
             </div>
             <div class="form-group">
                 <label>{{__('admin.icon')}}</label>
                 <input type="file" name="icon" class="form-control">
                 <a target="_blank"  href="{{asset('upload/settings/'.@$item->icon)}}">Icon</a>
+                @if($errors->has('icon'))
+                    <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('icon')}}</p>
+                @endif
             </div>
             <div class="form-group">
                 <label>{{__('admin.description')}}</label>
