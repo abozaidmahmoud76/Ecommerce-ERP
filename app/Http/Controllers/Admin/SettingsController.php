@@ -5,6 +5,7 @@ use App\Http\Controllers\Controller;
 
 use Illuminate\Http\Request;
 use App\Model\Settings;
+use Storage;
 
 class SettingsController extends Controller
 {
@@ -20,11 +21,19 @@ class SettingsController extends Controller
        ]);
        $data=$req->except('_token','_method');
        if($req->has('logo')){
-           $logo=upload($req->logo,'settings');
+//         $logo=upload($req->logo,'settings');
+           if(!empty(settings()->logo)){
+               Storage::delete(settings()->logo);
+           }
+           $logo=$req->logo->store('settings','public');
            $data['logo']=$logo;
        }
        if($req->has('icon')){
-           $icon=upload($req->icon,'settings');
+//         $icon=upload($req->icon,'settings');
+           if(!empty(settings()->icon)){
+               Storage::delete(settings()->icon);
+           }
+           $icon=$req->icon->store('settings','public');
            $data['icon']=$icon;
 
        }

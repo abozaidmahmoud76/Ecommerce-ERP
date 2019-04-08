@@ -48,6 +48,8 @@
     <link rel="stylesheet" href="{{ asset('design/admin/css/sidemenu_style.css')}}">
     @stack('css')
 
+    @yield('style_css')
+
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">

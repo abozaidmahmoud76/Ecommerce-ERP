@@ -252,6 +252,5 @@
 <script src=" {{asset('design/AdminLTE/bower_components/datatables.net-bs/js/dataTables.buttons.min.js')}} "></script>
 <script src="{{ url('') }}/vendor/datatables/buttons.server-side.js"></script>
 <script src="{{asset('design/admin/js/sidemenu_style.js')}}"></script>
-
-
 @stack('js')
+@yield('js_script')

@@ -1,11 +1,15 @@
 @extends('admin.index')
+
+@section('style_css')
+    <link rel="stylesheet" href="{{ asset('design/admin/css/upload_style.css')}}">
+@endsection
+
 @section('content')
     <div class="box">
         <div class="box-header">
             <h3 class="box-title">{{ __('admin.settings') }}</h3>
         </div>
         <!-- /.box-header -->
-        {{dd(url(''))}}
         <div class="box-body">
             <form method="post" action="{{adminUrl('website/settings')}}" enctype="multipart/form-data">
                 {{csrf_field()}}
@@ -22,23 +26,59 @@
                 <label>{{__('admin.email')}}</label>
                 <input type="email" name="email" value="{{@$item->email}}" class="form-control">
             </div>
-            <div class="form-group">
-                <label>{{__('admin.logo')}}</label>
-                <input type="file" name="logo" class="form-control">
-                <a target="_blank"  href="{{asset('upload/settings/'.@$item->logo)}}">Logo</a>
+
+
+            {{--<div class="form-group">--}}
+                {{--<label>{{__('admin.logo')}}</label>--}}
+                {{--<input type="file" name="logo" class="form-control">--}}
+                {{--<a target="_blank"  href="{{asset('storage/'.$item->logo)}}">Logo</a>--}}
+                {{--@if($errors->has('logo'))--}}
+                    {{--<p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('logo')}}</p>--}}
+                {{--@endif--}}
+            {{--</div>--}}
+
+
+                <div class="form-group">
+                    <div class="file-upload btn btn-primary">
+                        <span> <label>{{__('admin.logo')}}</label></span>
+                        <input type="file" name="logo" id="FileAttachment" class="upload" />
+                    </div>
+                    <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 1GB">
+                    @if(!empty($item->logo))
+                        <a target="_blank"  href="{{asset('storage/'.$item->logo)}}">Logo</a>
+                    @endif
                 @if($errors->has('logo'))
                     <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('logo')}}</p>
-                @endif
-            </div>
-            <div class="form-group">
-                <label>{{__('admin.icon')}}</label>
-                <input type="file" name="icon" class="form-control">
-                <a target="_blank"  href="{{asset('upload/settings/'.@$item->icon)}}">Icon</a>
+                    @endif
+                </div>
+
+                <div class="form-group">
+                    <div class="file-upload btn btn-primary">
+                        <span> <label>{{__('admin.icon')}}</label></span>
+                        <input type="file" name="icon" id="FileAttachment" class="upload" />
+                    </div>
+                    <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 1GB">
+                    @if(!empty($item->icon))
+                        <a target="_blank"  href="{{asset('storage/'.$item->icon)}}">icon</a>
+                    @endif
+
                 @if($errors->has('icon'))
                     <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('icon')}}</p>
-                @endif
-            </div>
-            <div class="form-group">
+                    @endif
+                </div>
+
+
+
+
+            {{--<div class="form-group">--}}
+                {{--<label>{{__('admin.icon')}}</label>--}}
+                {{--<input type="file" name="icon" class="form-control">--}}
+                {{--<a target="_blank"  href="{{asset('storage/'.$item->icon)}}">Icon</a>--}}
+                {{--@if($errors->has('icon'))--}}
+                    {{--<p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('icon')}}</p>--}}
+                {{--@endif--}}
+            {{--</div>--}}
+            <div class="form-group"
                 <label>{{__('admin.description')}}</label>
                 <textarea name="description" class="form-control">{{@$item->description}}</textarea>
             </div>
@@ -72,4 +112,13 @@
         <!-- /.box-body -->
     </div>
     <!-- /.box -->
+@endsection
+
+@section('js_script')
+    <script>
+        document.getElementById("FileAttachment").onchange = function () {
+            document.getElementById("fileuploadurl").value = this.value;
+        };
+    </script>
+
 @endsection
