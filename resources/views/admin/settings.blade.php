@@ -26,18 +26,6 @@
                 <label>{{__('admin.email')}}</label>
                 <input type="email" name="email" value="{{@$item->email}}" class="form-control">
             </div>
-
-
-            {{--<div class="form-group">--}}
-                {{--<label>{{__('admin.logo')}}</label>--}}
-                {{--<input type="file" name="logo" class="form-control">--}}
-                {{--<a target="_blank"  href="{{asset('storage/'.$item->logo)}}">Logo</a>--}}
-                {{--@if($errors->has('logo'))--}}
-                    {{--<p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('logo')}}</p>--}}
-                {{--@endif--}}
-            {{--</div>--}}
-
-
                 <div class="form-group">
                     <div class="file-upload btn btn-primary">
                         <span> <label>{{__('admin.logo')}}</label></span>
