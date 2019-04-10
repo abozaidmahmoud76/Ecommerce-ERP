@@ -43,9 +43,9 @@
 <div class="site-branding-area">
     <div class="container">
         <div class="row">
-            <div class="col-sm-6">
+            <div class="col-sm-1">
                 <div class="logo">
-                    <h1><a href="./"><img src="{{asset('design/style/img/logo.png')}}"></a></h1>
+                    <h1><a href="./"><img src="{{asset('storage/'.@settings()->logo)}}"></a></h1>
                 </div>
             </div>
 

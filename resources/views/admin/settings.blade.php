@@ -56,18 +56,6 @@
                     <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('icon')}}</p>
                     @endif
                 </div>
-
-
-
-
-            {{--<div class="form-group">--}}
-                {{--<label>{{__('admin.icon')}}</label>--}}
-                {{--<input type="file" name="icon" class="form-control">--}}
-                {{--<a target="_blank"  href="{{asset('storage/'.$item->icon)}}">Icon</a>--}}
-                {{--@if($errors->has('icon'))--}}
-                    {{--<p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('icon')}}</p>--}}
-                {{--@endif--}}
-            {{--</div>--}}
             <div class="form-group"
                 <label>{{__('admin.description')}}</label>
                 <textarea name="description" class="form-control">{{@$item->description}}</textarea>
@@ -87,8 +75,8 @@
             <div class="form-group">
                 <label>{{__('admin.status')}}</label>
                 <select name="status" class="form-control">
-                    <option value="open" @if(@$item->main_lang=='open') selected @endif >{{trans('admin.open')}}</option>
-                    <option value="close" @if(@$item->main_lang=='close') selected @endif>{{trans('admin.closed')}}</option>
+                    <option value="open" @if(@$item->status=='open') selected @endif >{{trans('admin.open')}}</option>
+                    <option value="close" @if(@$item->status=='close') selected @endif>{{trans('admin.closed')}}</option>
                 </select>
 
             </div>
