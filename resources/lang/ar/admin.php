@@ -38,6 +38,7 @@ return[
     'no'=>'غلق',
     'select_record_to_delete'=>'من فضلك اختر الحقول التى تريد مسحها',
     'add'=>'اضافه عضو جديد',
+    'Add'=>'اضافه',
     'submit'=>'انشاء',
     'users'=>'الاعضاء',
     'user'=>'عضو',
@@ -64,5 +65,6 @@ return[
     'message_maintenance'=>'رساله تنبيه الصيانه',
     'save'=>'حفظ',
     'settings'=>'الاعدادات',
+    'countries'=>'الدول',
 
 ];

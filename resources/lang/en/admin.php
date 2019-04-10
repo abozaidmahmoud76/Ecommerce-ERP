@@ -39,6 +39,7 @@ return[
     'no'=>'close',
     'select_record_to_delete'=>'please select records to delete',
     'add'=>'create new member',
+    'Add'=>'add',
     'submit'=>'create',
     'users'=>'members',
     'user'=>'user',
@@ -65,6 +66,7 @@ return[
     'message_maintenance'=>'message_maintenance',
     'save'=>'save',
     'settings'=>'settings',
+    'countries'=>'couturies',
 
 
 

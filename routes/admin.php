@@ -32,6 +32,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::get('website/settings','SettingsController@index');
         Route::post('website/settings','SettingsController@update_settings');
 
+//admin route
         Route::resource('admin','AdminController');
         Route::post('delete/all','AdminController@destroy');
         Route::get('create','AdminController@create');
@@ -39,6 +40,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::resource('user','UserController');
         Route::post('user/delete/all','UserController@destroy');
         Route::get('create','UserController@create');
+
+//country routes
+        Route::resource('countries','ConturiesController');
+
 
 
         // //send email
