@@ -21,19 +21,24 @@ class SettingsController extends Controller
        ]);
        $data=$req->except('_token','_method');
        if($req->has('logo')){
-//         $logo=upload($req->logo,'settings');
-           if(!empty(settings()->logo)){
-               Storage::delete(settings()->logo);
-           }
-           $logo=$req->logo->store('settings','public');
+           $logo=upload()->upload([
+               'file'=>'logo',
+               'path'=>'settings',
+               'upload_type'=>'single',
+               'delete_file'=>settings()->logo,
+           ]);
            $data['logo']=$logo;
        }
+
+
        if($req->has('icon')){
-//         $icon=upload($req->icon,'settings');
-           if(!empty(settings()->icon)){
-               Storage::delete(settings()->icon);
-           }
-           $icon=$req->icon->store('settings','public');
+           $icon=upload()->upload([
+               'file'=>'icon',
+               'path'=>'settings',
+               'upload_type'=>'single',
+               'delete_file'=>settings()->icon,
+           ]);
+
            $data['icon']=$icon;
 
        }

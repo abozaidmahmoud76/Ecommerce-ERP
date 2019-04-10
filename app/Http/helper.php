@@ -17,6 +17,15 @@ if(!function_exists('settings')) {
 }
 
 
+//make upload class as helper function user in any place
+if(!function_exists('upload')) {
+    function upload()
+    {
+        return new App\Http\Controllers\Admin\UploadController;
+    }
+}
+
+
 //upload files and img
 if(!function_exists('upload')) {
     function upload($file,$folder)
