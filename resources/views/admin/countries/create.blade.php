@@ -5,7 +5,7 @@
     <p class="alert alert-success ">{{session('success')}}</p>
 @endif
 
-    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('countries.store')}}">
+    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('countries.store')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
             <label>{{__('admin.country_name_ar')}}</label>
@@ -39,7 +39,7 @@
                 <div class="input-group-addon">
                     <i class="fa fa-key"></i>
                 </div>
-                <input type="text" required class="form-control" name="mob">
+                <input type="text" required class="form-control" name="mob" value="{{old('mob')}}">
             </div>
             @if($errors->has('mob'))
                 <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('mob')}}</p>
@@ -52,7 +52,7 @@
                 <div class="input-group-addon">
                     <i class="fa fa-key"></i>
                 </div>
-                <input type="text" required class="form-control" name="code">
+                <input type="text" required class="form-control" name="code" value="{{old('code')}}">
             </div>
             @if($errors->has('code'))
                 <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('code')}}</p>
@@ -60,7 +60,7 @@
         </div>
 
         <div class="form-group">
-            <label>{{__('admin.logo')}}</label>
+            <label>{{__('admin.flag')}}</label>
             <div class="input-group">
                 <div class="input-group-addon">
                     <i class="fa fa-key"></i>

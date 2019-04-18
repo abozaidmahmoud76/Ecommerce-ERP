@@ -11,10 +11,10 @@
         <h4 class="modal-title">{{__('admin.delete')}}</h4>
       </div>
       <div class="modal-body">
-      <p class="alert alert-danger">are you sure to delete<span> {{$name}}</span></p>
+      <p class="alert alert-danger">are you sure to delete<span> {{ session('lang')=='ar'?$country_name_ar:$country_name_en  }} </span></p>
       </div>
       <div class="modal-footer">
-      <form method="post" action="{{route('admin.destroy',$id)}}">
+      <form method="post" action="{{route('countries.destroy',$id)}}">
             {{csrf_field()}}
             {{method_field('delete')}}
             <button type="submit" class="btn btn-primary">{{__('admin.yes')}}</button>

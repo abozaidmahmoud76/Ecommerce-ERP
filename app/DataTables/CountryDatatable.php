@@ -17,9 +17,10 @@ class CountryDatatable extends DataTable
     {
         return datatables($query)
             ->addColumn('edit', 'admin.countries.btn.edit')
-//            ->addColumn('delete', 'admin.countries.btn.delete')
+            ->addColumn('delete', 'admin.countries.btn.delete')
             ->addColumn('checkbox', 'admin.countries.btn.checkbox')
-            ->rawColumns(['edit','checkbox']);
+            ->addColumn('logo','admin.countries.btn.img')
+            ->rawColumns(['edit','delete','checkbox','logo']);
     }
 
     /**
@@ -57,7 +58,7 @@ class CountryDatatable extends DataTable
                     ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("admin.excel") .'</i> '],
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
                     ['className' => 'btn btn-danger delBtn' , 'text' => '<i class="fa fa-trash">'.__('admin.delete').'</i>'],
-                    ['className' => 'btn btn-primary add_member' , 'text' => '<i class="fa fa-plus">'.__("admin.Add").'</i>'],
+                    ['className' => 'btn btn-primary add_country' , 'text' => '<i class="fa fa-plus">'.__("admin.Add").'</i>'],
 
                 ],
 //search in column
@@ -124,7 +125,7 @@ class CountryDatatable extends DataTable
                 'data'=>'code',
             ],
             [
-                'title'=>__('admin.logo'),
+                'title'=>__('admin.flag'),
                 'name'=>'logo',
                 'data'=>'logo',
             ],
@@ -152,15 +153,15 @@ class CountryDatatable extends DataTable
                 'exportable'=>false,
                 'orderable'=>false
             ],
-//            [
-//                'title'=>__('admin.delete'),
-//                'name'=>'delete',
-//                'data'=>'delete',
-//                'printable'=>false,
-//                'searchable'=>false,
-//                'exportable'=>false,
-//                'orderable'=>false
-//            ],
+            [
+                'title'=>__('admin.delete'),
+                'name'=>'delete',
+                'data'=>'delete',
+                'printable'=>false,
+                'searchable'=>false,
+                'exportable'=>false,
+                'orderable'=>false
+            ],
 
 
         ];

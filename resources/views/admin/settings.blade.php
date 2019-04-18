@@ -47,7 +47,7 @@
                         <span> <label>{{__('admin.icon')}}</label></span>
                         <input type="file" name="icon" id="FileAttachment" class="upload" />
                     </div>
-                    <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 1GB">
+                    <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 5mb">
                     @if(Storage::disk('public')->exists($item->icon))
                         <a target="_blank"  href="{{asset('storage/'.$item->icon)}}">icon</a>
                     @endif

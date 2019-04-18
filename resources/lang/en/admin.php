@@ -67,6 +67,12 @@ return[
     'save'=>'save',
     'settings'=>'settings',
     'countries'=>'couturies',
+    'country_name_ar'=>'country_name_ar',
+    'country_name_en'=>'country_name_en',
+    'flag'=>'flag',
+    'mob'=>'mobile',
+    'code'=>'code',
+
 
 
 

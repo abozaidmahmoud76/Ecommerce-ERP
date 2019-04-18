@@ -10,7 +10,7 @@
             @if(session()->has('success'))
             <p class="alert alert-success">{{session()->get('success')}}</p>
             @endif
-        <form id="formDeleteAdmin" method="post" action="{{url('admin/delete/all')}}">
+        <form id="formDeleteCountry" method="post" action="{{url('admin/country/delete/all')}}">
             {{ csrf_field() }}
         {!! $dataTable->table([
             'class'=>'dataTable table table-bordered '
@@ -48,7 +48,7 @@
 
 @push('js')
     {{$dataTable->scripts()}}
-    <script src="{{asset('js/admin.js')}}"></script>
+    <script src="{{asset('js/country.js')}}"></script>
 @endpush
 </div>
 

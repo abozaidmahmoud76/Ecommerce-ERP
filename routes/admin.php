@@ -43,6 +43,7 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
 
 //country routes
         Route::resource('countries','ConturiesController');
+        Route::post('country/delete/all','ConturiesController@destroy');
 
 
 

@@ -63,10 +63,20 @@ class ConturiesController extends Controller
            'country_name_en'=>'required|string',
            'mob'=>'required',
            'code'=>'required',
-           'logo'=>'',
+           'logo'=>v_image(),
 
        ]);
-      Country::create($validate);
+        if($req->has('logo')){
+            $logo=upload()->upload([
+                'file'=>'logo',
+                'path'=>'country',
+                'upload_type'=>'single',
+//                'delete_file'=>''
+            ]);
+            $validate['logo']=$logo;
+        }
+
+        Country::create($validate);
        session()->flash('success','country created successfully');
        return back();
     }
@@ -79,42 +89,52 @@ class ConturiesController extends Controller
 
     public function edit($id)
     {
-       $item=Admin::find($id);
-       return view('admin.admins.edit',['title'=>'Edit User','item'=>$item]);
+       $item=Country::find($id);
+       return view('admin.countries.edit',['title'=>'Edit Country','item'=>$item]);
     }
 
 
     public function update(Request $req, $id)
     {
+
+
         $validate=$this->validate($req,[
-            'name'=>'required|string|min:3',
-            'email'=>'required|email|unique:admins,email,'.$id,
-            'password'=>'sometimes|nullable|min:3|max:55',
+            'country_name_ar'=>'required|string',
+            'country_name_en'=>'required|string',
+            'mob'=>'required',
+            'code'=>'required',
+            'logo'=>v_image(),
 
         ]);
-        $item=Admin::find($id);
-        if($item) {
-            $item->name = strip_tags($req->name);
-            $item->email = strip_tags($req->email);
-            if(!empty($req->password)) {
-                $item->password = strip_tags(bcrypt($req->password));
-            }
-            $item->save();
-            session()->flash('success', 'user updated successfully');
+      $item= Country::find($id);
+        if($req->has('logo')){
+            $logo=upload()->upload([
+                'file'=>'logo',
+                'path'=>'country',
+                'upload_type'=>'single',
+                'delete_file'=>$item->logo,
+            ]);
+            $validate['logo']=$logo;
+        }
+
+
+
+        Country::find($id)->update($validate);
+            session()->flash('success', 'Country updated successfully');
             return back();
         }
-    }
+
 
 
     public function destroy(request $req,$id=null)
     {
-        
+
      $records='';
      if($id!=null){
-        Admin::find($id)->delete();
+        Country::find($id)->delete();
         $records='record';
      }else{
-        Admin::destroy($req->item_checkbox);
+         Country::destroy($req->item_checkbox);
         $records='records';
      }
         session()->flash('success',$records .' deleted successfully');
