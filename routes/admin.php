@@ -45,6 +45,10 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::resource('countries','ConturiesController');
         Route::post('country/delete/all','ConturiesController@destroy');
 
+//city routes
+        Route::resource('cities','CityController');
+        Route::post('city/delete/all','CityController@destroy');
+
 
 
         // //send email

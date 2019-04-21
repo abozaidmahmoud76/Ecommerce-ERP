@@ -142,6 +142,21 @@
                 </ul>
             </li>
 
+            {{-- المدن --}}
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>{{__('admin.cities')}}</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{adminUrl('cities')}}"><i class="fa fa-flag"></i> {{__('admin.cities')}}</a></li>
+                    <li><a href="{{adminUrl('cities/create')}}"><i class="fa fa-plus"></i> {{__('admin.Add')}}</a></li>
+                </ul>
+            </li>
+
 
 
 

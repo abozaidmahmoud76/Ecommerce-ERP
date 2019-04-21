@@ -2,10 +2,10 @@
 
 namespace App\DataTables;
 
-use App\Model\Country;
+use App\Model\City;
 use Yajra\DataTables\Services\DataTable;
 
-class CountryDatatable extends DataTable
+class CityDatatable extends DataTable
 {
     /**
      * Build DataTable class.
@@ -16,11 +16,10 @@ class CountryDatatable extends DataTable
     public function dataTable($query)
     {
         return datatables($query)
-            ->addColumn('edit', 'admin.countries.btn.edit')
-            ->addColumn('delete', 'admin.countries.btn.delete')
-            ->addColumn('checkbox', 'admin.countries.btn.checkbox')
-            ->addColumn('logo','admin.countries.btn.img')
-            ->rawColumns(['edit','delete','checkbox','logo']);
+            ->addColumn('edit', 'admin.cities.btn.edit')
+            ->addColumn('delete', 'admin.cities.btn.delete')
+            ->addColumn('checkbox', 'admin.cities.btn.checkbox')
+            ->rawColumns(['edit','delete','checkbox']);
     }
 
     /**
@@ -31,7 +30,7 @@ class CountryDatatable extends DataTable
      */
     public function query()
     {
-        return Country::query();
+        return City::query();
     }
 
 
@@ -58,7 +57,7 @@ class CountryDatatable extends DataTable
                     ['extend' => 'excel', 'className' => 'btn btn-success', 'text' => '<i class="fa fa-file">'.__("admin.excel") .'</i> '],
                     ['extend' => 'reload', 'className' => 'btn btn-default', 'text' => '<i class="fa fa-refresh"></i>'],
                     ['className' => 'btn btn-danger delBtn' , 'text' => '<i class="fa fa-trash">'.__('admin.delete').'</i>'],
-                    ['className' => 'btn btn-primary add_country'  , 'text' => '<i class="fa fa-plus">'.__("admin.Add").'</i>'],
+                    ['className' => 'btn btn-primary add_city' , 'text' => '<i class="fa fa-plus">'.__("admin.Add").'</i>'],
 
                 ],
 //search in column
@@ -104,30 +103,20 @@ class CountryDatatable extends DataTable
             ],
 
             [
-                'title'=>__('admin.country_name_ar'),
-                'name'=>'country_name_ar',
-                'data'=>'country_name_ar',
+                'title'=>__('admin.city_name_ar'),
+                'name'=>'city_name_ar',
+                'data'=>'city_name_ar',
             ],
             [
-                'title'=>__('admin.country_name_en'),
-                'name'=>'country_name_en',
-                'data'=>'country_name_en',
+                'title'=>__('admin.city_name_en'),
+                'name'=>'city_name_en',
+                'data'=>'city_name_en',
             ],
 
             [
-                'title'=>__('admin.mob'),
-                'name'=>'mob',
-                'data'=>'mob',
-            ],
-            [
-                'title'=>__('admin.code'),
-                'name'=>'code',
-                'data'=>'code',
-            ],
-            [
-                'title'=>__('admin.flag'),
-                'name'=>'logo',
-                'data'=>'logo',
+                'title'=>__('admin.country'),
+                'name'=>'country_id',
+                'data'=>'country_id',
             ],
 
 
@@ -174,6 +163,6 @@ class CountryDatatable extends DataTable
      */
     protected function filename()
     {
-        return 'country_' . date('YmdHis');
+        return 'city_' . date('YmdHis');
     }
 }

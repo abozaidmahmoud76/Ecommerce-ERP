@@ -67,11 +67,15 @@ return[
     'save'=>'save',
     'settings'=>'settings',
     'countries'=>'couturies',
+    'country'=>'country',
     'country_name_ar'=>'country_name_ar',
     'country_name_en'=>'country_name_en',
     'flag'=>'flag',
     'mob'=>'mobile',
     'code'=>'code',
+    'cities'=>'cities',
+    'city_name_ar'=>'city_name(ar)',
+    'city_name_en'=>'city_name(en)',
 
 
 
