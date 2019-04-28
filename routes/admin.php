@@ -49,6 +49,11 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::resource('cities','CityController');
         Route::post('city/delete/all','CityController@destroy');
 
+//state routes
+        Route::resource('states','StateController');
+        Route::post('state/delete/all','StateController@destroy');
+
+
 
 
         // //send email

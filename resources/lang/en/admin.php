@@ -74,8 +74,14 @@ return[
     'mob'=>'mobile',
     'code'=>'code',
     'cities'=>'cities',
+    'city'=>'city',
     'city_name_ar'=>'city_name(ar)',
     'city_name_en'=>'city_name(en)',
+    'states'=>'states',
+    'state'=>'state',
+    'state_name_ar'=>'state_name (ar)',
+    'state_name_en'=>'state_name (en)',
+
 
 
 
