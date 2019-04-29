@@ -181,6 +181,9 @@ return [
         /////        my custom provider ////////
         Yajra\DataTables\DataTablesServiceProvider::class,
         Yajra\DataTables\ButtonsServiceProvider::class,
+        Collective\Html\HtmlServiceProvider::class
+
+
 
 
     ],
@@ -232,6 +235,10 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Up' => App\Http\Controllers\Admin\UploadController::class,
+
+        //custom aliases
+        ‘Form’ => Collective\Html\FormFacade::class,
+        ‘Html’ => Collective\Html\HtmlFacade::class,
 
     ],
 
