@@ -53,6 +53,9 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
         Route::resource('states','StateController');
         Route::post('state/delete/all','StateController@destroy');
 
+//departments routes
+        Route::resource('departments','DepartmentController');
+        Route::post('department/delete/all','DepartmentController@destroy');
 
 
 

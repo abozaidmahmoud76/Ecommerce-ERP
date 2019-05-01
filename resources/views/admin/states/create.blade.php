@@ -1,10 +1,13 @@
 @extends('admin.index')
 
+
+
+
+
 @section('content')
 @if(session()->has('success'))
     <p class="alert alert-success ">{{session('success')}}</p>
 @endif
-
     <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('states.store')}}" >
         {{ csrf_field() }}
         <div class="form-group">
@@ -14,7 +17,7 @@
                 <div class="input-group-addon">
                     <i class="fa fa-user"></i>
                 </div>
-                <input type="text"  class="form-control" name="state_name_ar" value="{{old('state_name_ar')}}" placeholder="">
+                <input type="text" required class="form-control" name="state_name_ar" value="{{old('state_name_ar')}}" placeholder="">
             </div>
             @if($errors->has('state_name_ar'))
                 <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('state_name_ar')}}</p>
@@ -49,6 +52,9 @@
 
         <div class="form-group">
             <label>{{__('admin.cities')}}</label>
+            {{--<select class="form-control city" name="city_id" >--}}
+
+            {{--</select>--}}
             <div class="city"> </div>
         </div>
         @if($errors->has('city_id'))
@@ -62,9 +68,30 @@
     </form>
 @endsection
 
+
+
 @push('js')
     <script>
         $(document).ready(function () {
+
+
+            @if(old('country_id'))
+            $.ajax({
+                url:'{{adminUrl("states/create")}}',
+                type:'get',
+                dataType:'html',
+                data:{country_id:'{{old('country_id')}}',select:"{{old('city_id')}}"},
+                success:function (data) {
+                    $('.city').html(data);
+                },
+                error:function (err) {
+                    alert('errorr');
+                }
+            });
+
+            @endif
+
+
 
             $('.country').on('change',function () {
                 $.ajax({
@@ -82,21 +109,7 @@
             });
         });
 
-        @if(old('country_id'))
-        $.ajax({
-            url:'{{adminUrl("states/create")}}',
-            type:'get',
-            dataType:'html',
-            data:{country_id:$(this).val(),select:"{{old('city_id')}}"},
-            success:function (data) {
-                $('.city').html(data);
-            },
-            error:function (err) {
-                alert('errorr');
-            }
-        })
 
-       @endif
 
     </script>
 @endpush

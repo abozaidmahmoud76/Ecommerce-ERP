@@ -52,17 +52,29 @@ class StateController extends Controller
 
     public function create(Request $req)
     {
+
         if($req->ajax()) {
             if ($req->country_id) {
-                $cites=City::where('country_id',(int)$req->country_id)->pluck('city_name_en');
+                $cites=City::where('country_id',(int)$req->country_id)->select('city_name_'.lang(),'id')->get();
                 if(count($cites)>0) {
-                    $select=$req->has('select')?$req->select:'';
-                    return Form::select('city_id',City::where('country_id',(int)$req->country_id)->pluck('city_name_'.lang(),'id'),6,['class'=>'form-control']);
-                }else{
+                    if(isset($req->select)) {
+                        $select = $req->has('select')  ? $req->select : '';
+                    }else{
+                        $select='';
+                    }
+
+                    return Form::select('city_id',City::where('country_id',(int)$req->country_id)->pluck('city_name_'.lang(),'id'),$select,['class'=>'form-control']);
+
+                }
+
+
+                else{
                     return Form::select('city_id',City::where('country_id',(int)$req->country_id)->pluck('city_name_en','id'),null,['class'=>'form-control','placeholder'=>'...']);
                 }
             }
         }
+
+
         $countries=Country::all();
         return view('admin.states.create',['title'=>__('admin.Add'),'countries'=>$countries]);
     }

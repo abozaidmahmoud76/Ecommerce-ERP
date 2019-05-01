@@ -32,45 +32,6 @@
                 <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
         </div>
-
-
-        {{--<div id="jquery-accordion-menu" class="jquery-accordion-menu">--}}
-            {{--<ul>--}}
-                {{--<li class="active"><a href="#">{{__('admin.home')}} </a>--}}
-                    {{--<ul class="submenu">--}}
-                        {{--<li><a href="{{adminUrl('website/settings')}}">{{__('admin.settings')}}</a></li>--}}
-
-                    {{--</ul>--}}
-
-                {{--</li>--}}
-                {{--<li><a href="#"><i class="fa fa-file-image-o"></i>Gallery </a><span class="jquery-accordion-menu-label">12 </span></li>--}}
-                {{--<li><a href="{{adminUrl('admin')}}">{{__('admin.admin_account')}} </a>--}}
-                    {{--<ul class="submenu">--}}
-                        {{--<li><a href="#">--}}
-                                {{--Web Design </a></li>--}}
-                        {{--<li><a href="#">Hosting </a></li>--}}
-                        {{--<li><a href="#">Design </a>--}}
-                            {{--<ul class="submenu">--}}
-                                {{--<li><a href="#">Graphics </a></li>--}}
-                            {{--</ul>--}}
-                        {{--</li>--}}
-                        {{--<li><a href="#">Consulting </a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-                {{--<li><a href="#"> {{__('admin.users')}} </a>--}}
-                    {{--<ul class="submenu">--}}
-                        {{--<li ><a href="{{adminUrl('user')}}">{{__('admin.users')}} </a></li>--}}
-                        {{--<li ><a href="{{adminUrl('user?level=user')}}">{{__('admin.user')}} </a></li>--}}
-                        {{--<li ><a href="{{adminUrl('user?level=vendor')}}">{{__('admin.vendor')}} </a></li>--}}
-                        {{--<li><a href="{{adminUrl('user?level=company')}}">{{__('admin.company')}} </a></li>--}}
-                    {{--</ul>--}}
-                {{--</li>--}}
-            {{--</ul>--}}
-        {{--</div>--}}
-        {{----}}
-
-
-
         <!-- search form -->
         <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
@@ -169,6 +130,21 @@
                 <ul class="treeview-menu">
                     <li><a href="{{adminUrl('states')}}"><i class="fa fa-flag"></i> {{__('admin.states')}}</a></li>
                     <li><a href="{{adminUrl('states/create')}}"><i class="fa fa-plus"></i> {{__('admin.Add')}}</a></li>
+                </ul>
+            </li>
+
+            {{--  الاقسام --}}
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>{{__('admin.departments')}}</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{adminUrl('departments')}}"><i class="fa fa-flag"></i> {{__('admin.departments')}}</a></li>
+                    <li><a href="{{adminUrl('departments/create')}}"><i class="fa fa-plus"></i> {{__('admin.Add')}}</a></li>
                 </ul>
             </li>
 

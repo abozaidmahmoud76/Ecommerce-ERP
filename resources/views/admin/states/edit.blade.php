@@ -78,5 +78,22 @@
                 }
             });
         });
+
+
+        @if(isset($item->country_id))
+        $.ajax({
+            url:'{{adminUrl("states/create")}}',
+            type:'get',
+            dataType:'html',
+            data:{country_id:'{{$item->country_id}}',select:"{{$item->city_id}}"},
+            success:function (data) {
+                $('.city').html(data);
+            },
+            error:function (err) {
+                alert('errorr');
+            }
+        });
+
+        @endif
     </script>
 @endpush

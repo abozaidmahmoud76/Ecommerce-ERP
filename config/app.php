@@ -237,8 +237,8 @@ return [
         'Up' => App\Http\Controllers\Admin\UploadController::class,
 
         //custom aliases
-        ‘Form’ => Collective\Html\FormFacade::class,
-        ‘Html’ => Collective\Html\HtmlFacade::class,
+        'Form' => Collective\Html\FormFacade::class,
+        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 
