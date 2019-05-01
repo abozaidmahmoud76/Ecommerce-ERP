@@ -25,7 +25,7 @@ class SettingsController extends Controller
                'file'=>'logo',
                'path'=>'settings',
                'upload_type'=>'single',
-               'delete_file'=>settings()->logo,
+               'delete_file'=>isset(settings()->logo)?settings()->logo:'' ,
            ]);
            $data['logo']=$logo;
        }
@@ -36,7 +36,7 @@ class SettingsController extends Controller
                'file'=>'icon',
                'path'=>'settings',
                'upload_type'=>'single',
-               'delete_file'=>settings()->icon,
+               'delete_file'=>isset(settings()->icon)?settings()->icon:'' ,
            ]);
 
            $data['icon']=$icon;

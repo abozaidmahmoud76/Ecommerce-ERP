@@ -1,9 +1,5 @@
 @extends('admin.index')
 
-
-
-
-
 @section('content')
 @if(session()->has('success'))
     <p class="alert alert-success ">{{session('success')}}</p>
@@ -108,8 +104,5 @@
                 });
             });
         });
-
-
-
     </script>
 @endpush

@@ -32,9 +32,9 @@
                         <input type="file" name="logo" id="FileAttachment" class="upload" />
                     </div>
                     <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 1GB">
-                    {{--@if(Storage::disk('public')->exists($item->logo))--}}
+                    {{--@if(Storage::disk('public')->exists(@$item->logo))--}}
 
-                    @if(Storage::disk('public')->exists($item->logo))
+                    @if(Storage::disk('public')->exists(@$item->logo))
                         <a target="_blank"  href="{{asset('storage/'.$item->logo)}}">Logo</a>
                     @endif
                 @if($errors->has('logo'))
@@ -48,7 +48,7 @@
                         <input type="file" name="icon" id="FileAttachment" class="upload" />
                     </div>
                     <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 5mb">
-                    @if(Storage::disk('public')->exists($item->icon))
+                    @if(Storage::disk('public')->exists(@$item->icon))
                         <a target="_blank"  href="{{asset('storage/'.$item->icon)}}">icon</a>
                     @endif
 

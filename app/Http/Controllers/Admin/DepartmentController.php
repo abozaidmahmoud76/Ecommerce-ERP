@@ -44,7 +44,7 @@ class DepartmentController extends Controller
 
     public function index()
     {
-
+        return view('admin.departments.listDepartments',['title'=>__('admin.index')]);
     }
 
 
