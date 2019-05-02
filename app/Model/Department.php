@@ -16,13 +16,13 @@ class Department extends Model
         'icon',
         'description',
         'keyword',
-        'parent_id',
+        'parent',
     ];
 
     public function parents()
     {
 
-        return $this->hasMany('App\Model\Department','id','parent_id');
+        return $this->hasMany('App\Model\Department','id','parent');
     }
 
 }

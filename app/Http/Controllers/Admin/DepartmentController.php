@@ -62,12 +62,22 @@ class DepartmentController extends Controller
        $validate=$this->validate($req,[
            'dep_name_ar'=>'required|string',
            'dep_name_en'=>'required|string',
-           'icon'=>'sometimes|nullable',
+           'icon'=>'sometimes|nullable|'.v_image(),
            'description'=>'sometimes|nullable',
            'keyword'=>'sometimes|nullable',
-           'parent_id'=>'sometimes|nullable',
+           'parent'=>'sometimes|nullable',
        ]);
 
+        if($req->has('icon')){
+            $icon=upload()->upload([
+                'file'=>'icon',
+                'path'=>'departments',
+                'upload_type'=>'single',
+                'delete_file'=>'' ,
+            ]);
+
+            $validate['icon']=$icon;
+        }
 
        Department::create($validate);
        session()->flash('success','department created successfully');
@@ -92,12 +102,22 @@ class DepartmentController extends Controller
         $validate=$this->validate($req,[
             'dep_name_ar'=>'required|string',
             'dep_name_en'=>'required|string',
-            'icon'=>'sometimes|nullable',
+            'icon'=>'sometimes|nullable'.v_image(),
             'description'=>'sometimes|nullable',
             'keyword'=>'sometimes|nullable',
-            'parent_id'=>'sometimes|nullable',
+            'parent'=>'sometimes|nullable',
         ]);
 
+        if($req->has('icon')){
+            $icon=upload()->upload([
+                'file'=>'icon',
+                'path'=>'departments',
+                'upload_type'=>'single',
+                'delete_file'=>\App\Model\Department::find($id)->icon ,
+            ]);
+
+            $validate['icon']=$icon;
+        }
         Department::find($id)->update($validate);
             session()->flash('success', 'Department updated successfully');
             return back();

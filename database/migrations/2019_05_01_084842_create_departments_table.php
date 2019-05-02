@@ -20,8 +20,8 @@ class CreateDepartmentsTable extends Migration
             $table->string('icon')->nullable();
             $table->text('description')->nullable();
             $table->string('keyword')->nullable();
-            $table->integer('parent_id')->unsigned()->nullable();
-            $table->foreign('parent_id')->references('id')->on('departments')->onDelete('cascade')->onUpdate('cascade');
+            $table->integer('parent')->unsigned()->nullable();
+            $table->foreign('parent')->references('id')->on('departments')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

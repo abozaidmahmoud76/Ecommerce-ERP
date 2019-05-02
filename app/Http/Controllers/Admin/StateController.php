@@ -66,22 +66,14 @@ class StateController extends Controller
                     return Form::select('city_id',City::where('country_id',(int)$req->country_id)->pluck('city_name_'.lang(),'id'),$select,['class'=>'form-control']);
 
                 }
-
-
                 else{
                     return Form::select('city_id',City::where('country_id',(int)$req->country_id)->pluck('city_name_en','id'),null,['class'=>'form-control','placeholder'=>'...']);
                 }
             }
         }
-
-
         $countries=Country::all();
         return view('admin.states.create',['title'=>__('admin.Add'),'countries'=>$countries]);
     }
-
-
-
-
 
     public function store(Request $req)
     {

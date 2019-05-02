@@ -31,7 +31,7 @@
                         <span> <label>{{__('admin.logo')}}</label></span>
                         <input type="file" name="logo" id="FileAttachment" class="upload" />
                     </div>
-                    <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 1GB">
+                    <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 5mb">
                     {{--@if(Storage::disk('public')->exists(@$item->logo))--}}
 
                     @if(Storage::disk('public')->exists(@$item->logo))

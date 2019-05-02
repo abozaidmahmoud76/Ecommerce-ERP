@@ -46,8 +46,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
     <link rel="stylesheet" href="{{ asset('design/AdminLTE/dist/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('design/admin/css/sidemenu_style.css')}}">
-    @stack('css')
+    <link rel="stylesheet" href="{{asset('design/admin/jstree/dist/themes/default/style.min.css')}}" />
 
+    @stack('css')
     @yield('style_css')
 
 </head>
