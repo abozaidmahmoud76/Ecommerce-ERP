@@ -14,7 +14,8 @@
                 <div class="input-group-addon">
                     <i class="fa fa-user"></i>
                 </div>
-                <input type="text" required class="form-control" name="dep_name_ar" value="{{old('dep_name_ar')}}" placeholder="">
+                <input type="text"  class="form-control" name="dep_name_ar" value="{{old('dep_name_ar')}}" placeholder="">
+                <input type=hidden name="parent" class="parent_id" value="{{old('parent')}}">
             </div>
             @if($errors->has('dep_name_ar'))
                 <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('dep_name_ar')}}</p>
@@ -34,9 +35,6 @@
            @endif
         </div>
         <div id="jstree"></div>
-
-
-
 
 
         <div class="form-group">
@@ -82,7 +80,7 @@
                     "themes" : {
                         "variant" : "large"
                     },
-                    'data' :{!! load_department() !!}
+                    'data' :{!! load_department(old('parent')) !!}
                 },
                 "checkbox" : {
                     "keep_selected_style" : false
@@ -95,7 +93,13 @@
 
 
         $('#jstree').on('changed.jstree',function (e,data) {
-                 console.log(data.instance.get_node(data.selected));
+                 var i,j,arr=[];
+                 for(i=0,j=data.selected.length;i<j;i++){
+                    arr.push(data.instance.get_node(data.selected[i]).id)
+                 }
+                //  $('.parent_id').val(arr.join(', '));
+                $('.parent_id').val(data.instance.get_node(data.selected).id);
+
         });
 
 

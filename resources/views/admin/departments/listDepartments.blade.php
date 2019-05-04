@@ -5,6 +5,13 @@
 @endpush
 
 @section('content')
+<div class="main_div hidden">
+    <a href="" class="btn btn-default editdep ">edit</a>
+    <a href="" class="btn btn-dabger deldep ">delete</a>
+</div>
+
+<input type=hidden name="parent" class="parent_id" value="{{old('parent')}}">
+
 
 <div id="jstree">
 </div>
@@ -17,24 +24,41 @@
 
 <script>
 
+
 $(document).ready(function () {
 
-    $('#jstree').jstree({
-        "core" : {
-            "themes" : {
-                "variant" : "large"
-            },
-            'data' :" {!! load_department()  !!}"
+$('#jstree').jstree({
+    "core" : {
+        "themes" : {
+            "variant" : "large"
         },
-        "checkbox" : {
-            "keep_selected_style" : false
-        },
-        "plugins" : [ "wholerow", "" ]
-    });
-
-
+        'data' :{!! load_department() !!}
+    },
+    "checkbox" : {
+        "keep_selected_style" : true
+    },
+    "plugins" : [ "wholerow", "" ]
 });
 
+$('#jstree').on('changed.jstree',function (e,data) {
+                 var i,j,arr=[];
+                 for(i=0,j=data.selected.length;i<j;i++){
+                    arr.push(data.instance.get_node(data.selected[i]).id)
+                 }
+               $('.parent_id').val(data.instance.get_node(data.selected).id);
+                //  $('.parent_id').val(arr.join(', '));
+                if(arr>0){
+                    var id=$('.parent_id').val();
+                    $('.main_div').removeClass('hidden');
+                    $('.editdep').attr('href','{{adminUrl("departments/")}}'+'/'+id);
+                }else{
+                    alert('else');
+                    $('.main_div').addClass('hidden');
+                }
+                $('.parent_id').val(data.instance.get_node(data.selected).id);
+
+        });
+});
 
 </script>
 @endpush

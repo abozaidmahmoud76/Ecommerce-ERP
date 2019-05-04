@@ -33,20 +33,19 @@ if(!function_exists('load_department')) {
     {
         $departments=App\Model\Department::selectRaw('dep_name_'.lang()." as text")->
             selectRaw('id as id')->selectRaw('parent as parent')->get();
-
         $dept_arr=[];
         foreach ($departments as $department){
             $list_arr=[];
-//            if($select!==null && $select->$department->id){
-//                $list_arr['icon']='';
-//                $list_arr['li_attr']='';
-//                $list_arr['a_attr']='';
-//                $list_arr['children']=[];
-//                $list_arr['status']=[
-//                  'opened'=>'true',
-//                  'selected'=>'true'
-//                ];
-//            }
+           if($select!==null && $select==$department->id ){
+               $list_arr['icon']='<i class="fa fa-trash"></i>';
+               $list_arr['li_attr']='';
+               $list_arr['a_attr']='';
+               $list_arr['children']=[];
+               $list_arr['state']=[
+                 'opened'=>'true',
+                 'selected'=>'true'
+               ];
+           }
             $list_arr['id']=$department->id;
             $list_arr['parent']=$department->parent!==null?$department->parent:"#";
             $list_arr['text']=$department->text;
@@ -102,7 +101,7 @@ if(!function_exists('admin')) {
 if(!function_exists('lang')) {
     function lang()
     {
-        $lang=session()->has('lang')?session('lang'):settings()->main_lang;
+        $lang=session()->has('lang')?session('lang'):@settings()->main_lang;
         return $lang;
     }
 }

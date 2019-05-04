@@ -92,6 +92,7 @@ class DepartmentController extends Controller
 
     public function edit($id)
     {
+        dd($id);
        $item=Department::find($id);
        return view('admin.departments.edit',['title'=>'Edit Department','item'=>$item]);
     }
