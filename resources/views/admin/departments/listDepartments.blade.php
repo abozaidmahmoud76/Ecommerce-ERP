@@ -37,7 +37,7 @@ $('#jstree').jstree({
     "checkbox" : {
         "keep_selected_style" : true
     },
-    "plugins" : [ "wholerow", "" ]
+    "plugins" : [ "wholerow", "radio" ]
 });
 
 $('#jstree').on('changed.jstree',function (e,data) {
@@ -50,7 +50,7 @@ $('#jstree').on('changed.jstree',function (e,data) {
                 if(arr>0){
                     var id=$('.parent_id').val();
                     $('.main_div').removeClass('hidden');
-                    $('.editdep').attr('href','{{adminUrl("departments/")}}'+'/'+id);
+                    $('.editdep').attr('href','{{adminUrl("departments/")}}'+'/'+id+'/edit');
                 }else{
                     alert('else');
                     $('.main_div').addClass('hidden');

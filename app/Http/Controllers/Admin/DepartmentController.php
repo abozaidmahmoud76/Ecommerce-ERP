@@ -92,7 +92,6 @@ class DepartmentController extends Controller
 
     public function edit($id)
     {
-        dd($id);
        $item=Department::find($id);
        return view('admin.departments.edit',['title'=>'Edit Department','item'=>$item]);
     }
@@ -103,11 +102,13 @@ class DepartmentController extends Controller
         $validate=$this->validate($req,[
             'dep_name_ar'=>'required|string',
             'dep_name_en'=>'required|string',
-            'icon'=>'sometimes|nullable'.v_image(),
+//            'icon'=>'sometimes|nullable'.v_image(),
             'description'=>'sometimes|nullable',
             'keyword'=>'sometimes|nullable',
             'parent'=>'sometimes|nullable',
         ]);
+
+//        return $req->all();
 
         if($req->has('icon')){
             $icon=upload()->upload([

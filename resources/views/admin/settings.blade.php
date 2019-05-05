@@ -67,8 +67,8 @@
             <div class="form-group">
                 <label>{{__('admin.main_lang')}}</label>
                 <select name="main_lang" class="form-control">
-                    <option value="ar" @if(@$item->main_lang=='ar') selected @endif>{{trans('admin.ar')}}</option>
-                    <option value="en" @if(@$item->main_lang=='en') selected @endif>{{trans('admin.en')}}</option>
+                    <option value="ar" readonly @if(@$item->main_lang=='ar') selected @endif>{{trans('admin.ar')}}</option>
+                    <option value="en" readonly @if(@$item->main_lang=='en') selected @endif>{{trans('admin.en')}}</option>
                 </select>
 
             </div>
