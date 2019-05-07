@@ -1,10 +1,14 @@
 @extends('admin.index')
 
+@section('style_css')
+    <link rel="stylesheet" href="{{ asset('design/admin/css/upload_style.css')}}">
+@endsection
+
 @section('content')
 @if(session()->has('success'))
     <p class="alert alert-success ">{{session('success')}}</p>
 @endif
-    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('departments.store')}}" >
+    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('departments.store')}}" enctype="multipart/form-data" >
         {{ csrf_field() }}
 
         <div class="form-group">
@@ -39,12 +43,12 @@
 
         <div class="form-group">
              <label>{{__('admin.description')}}</label>
-             <textarea name="description" class="form-control"></textarea>
+             <textarea name="description" class="form-control">{{old('description')}}</textarea>
         </div>
 
         <div class="form-group"/>
         <label>{{__('admin.keyword')}}</label>
-        <textarea name="keyword" class="form-control"></textarea>
+        <textarea name="keyword" class="form-control">{{old('keyword')}}</textarea>
         </div>
 
         <div class="form-group">
@@ -52,7 +56,6 @@
                 <span> <label>{{__('admin.icon')}}</label></span>
                 <input type="file" name="icon" id="FileAttachment" class="upload" />
             </div>
-            <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 1GB">
             @if(Storage::disk('public')->exists(@$item->icon))
                 <a target="_blank"  href="{{asset('storage/'.$item->icon)}}">Icon</a>
             @endif
@@ -62,10 +65,15 @@
         </div>
 
 
+
+
+
+
             <button type="submit" class="btn btn-primary">{{__('admin.submit')}}</button>
         <a href="{{url(adminUrl('departments'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> {{__('admin.back')}}</a>
 
     </form>
+
 @endsection
 
 

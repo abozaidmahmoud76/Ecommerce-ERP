@@ -37,7 +37,12 @@ if(!function_exists('load_department')) {
         foreach ($departments as $department){
             $list_arr=[];
 
-            $list_arr['icon']='<i class="fa fa-trash"></i>';
+            if(!$department->childs->isEmpty()){
+                $list_arr['icon']="glyphicon glyphicon-tree-deciduous";
+            }else{
+                $list_arr['icon']="glyphicon glyphicon-leaf";
+
+            }
             $list_arr['li_attr']='';
             $list_arr['a_attr']='';
             $list_arr['children']=[];
@@ -49,7 +54,6 @@ if(!function_exists('load_department')) {
                  'selected'=>true,
                ];
            }
-
 
             if($id!==null && $id==$department->id ){
 
@@ -72,24 +76,24 @@ if(!function_exists('load_department')) {
 }
 
 
-//upload files and img
-if(!function_exists('upload')) {
-    function upload($file,$folder)
-    {
-        $filename=$file->getClientOriginalName().'_'.time();
-        $dest=public_path('/upload');
-        if(!file_exists($dest)){
-            mkdir($dest,0777,true);
-        }
-
-        if(!file_exists($dest.'/'.$folder)){
-            mkdir($dest.'/'.$folder,0777,true);
-        }
-
-        $file->move($dest.'/'.$folder,$filename);
-        return $filename;
-    }
-}
+////upload files and img
+//if(!function_exists('upload')) {
+//    function upload($file,$folder)
+//    {
+//        $filename=$file->getClientOriginalName().'_'.time();
+//        $dest=public_path('/upload');
+//        if(!file_exists($dest)){
+//            mkdir($dest,0777,true);
+//        }
+//
+//        if(!file_exists($dest.'/'.$folder)){
+//            mkdir($dest.'/'.$folder,0777,true);
+//        }
+//
+//        $file->move($dest.'/'.$folder,$filename);
+//        return $filename;
+//    }
+//}
 
 
 //validate image

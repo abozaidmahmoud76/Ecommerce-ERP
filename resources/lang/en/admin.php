@@ -81,6 +81,10 @@ return[
     'state'=>'state',
     'state_name_ar'=>'state_name (ar)',
     'state_name_en'=>'state_name (en)',
+    'departments'=>'departments',
+    'dep_name_ar'=>'department_name (ar)',
+    'dep_name_en'=>'department_name (en)',
+    'keyword'=>'keyword',
 
 
 

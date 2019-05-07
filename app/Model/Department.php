@@ -19,10 +19,10 @@ class Department extends Model
         'parent',
     ];
 
-    public function parents()
+    public function childs()
     {
 
-        return $this->hasMany('App\Model\Department','id','parent');
+        return $this->hasMany('App\Model\Department','parent','id');
     }
 
 }

@@ -56,6 +56,12 @@ Route::group(['prefix'=>'admin','namespace'=>'Admin'],function (){
 //departments routes
         Route::resource('departments','DepartmentController');
         Route::post('department/delete/all','DepartmentController@destroy');
+        Route::get('department/{id}/delete','DepartmentController@delete');
+
+
+//tradeBrands routes
+        Route::resource('tradebrands','TradeBrandController');
+        Route::post('tradebrand/delete/all','TradeBrandController@destroy');
 
 
 

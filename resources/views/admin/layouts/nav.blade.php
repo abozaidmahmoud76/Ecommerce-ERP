@@ -149,6 +149,22 @@
             </li>
 
 
+            {{--  الاقسام --}}
+            <li class="treeview">
+                <a href="#">
+                    <i class="fa fa-files-o"></i>
+                    <span>{{__('admin.tradebrands')}}</span>
+                    <span class="pull-right-container">
+              <span class="label label-primary pull-right">4</span>
+            </span>
+                </a>
+                <ul class="treeview-menu">
+                    <li><a href="{{adminUrl('tradebrands')}}"><i class="fa fa-flag"></i> {{__('admin.tradebrands')}}</a></li>
+                    <li><a href="{{adminUrl('tradebrands/create')}}"><i class="fa fa-plus"></i> {{__('admin.Add')}}</a></li>
+                </ul>
+            </li>
+
+
 
 
 

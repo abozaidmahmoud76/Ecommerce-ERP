@@ -1,10 +1,13 @@
 @extends('admin.index')
+@section('style_css')
+    <link rel="stylesheet" href="{{ asset('design/admin/css/upload_style.css')}}">
+@endsection
 
 @section('content')
     @if(session()->has('success'))
         <p class="alert alert-success ">{{session('success')}}</p>
     @endif
-    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('departments.update',$item->id)}}" >
+    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('departments.update',$item->id)}}"  enctype="multipart/form-data">
         {{ csrf_field() }}
         {{method_field('patch')}}
 
@@ -35,6 +38,8 @@
                 <p class="alert alert-danger error"><i class="fa fa-warning "></i> {{$errors->first('dep_name_en')}}</p>
             @endif
         </div>
+
+        {{-- show departments using jstree package --}}
         <div id="jstree"></div>
 
 
@@ -53,7 +58,6 @@
                 <span> <label>{{__('admin.icon')}}</label></span>
                 <input type="file" name="icon" id="FileAttachment" class="upload" />
             </div>
-            <input type="text" id="fileuploadurl" readonly placeholder="Maximum file size is 1mb">
             @if(Storage::disk('public')->exists(@$item->icon))
                 <a target="_blank"  href="{{asset('storage/'.$item->icon)}}">Icon</a>
             @endif
