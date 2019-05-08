@@ -34,42 +34,44 @@ if(!function_exists('load_department')) {
         $departments=App\Model\Department::selectRaw('dep_name_'.lang()." as text")->
             selectRaw('id as id')->selectRaw('parent as parent')->get();
         $dept_arr=[];
-        foreach ($departments as $department){
-            $list_arr=[];
+        if($departments) {
+            foreach ($departments as $department) {
+                $list_arr = [];
 
-            if(!$department->childs->isEmpty()){
-                $list_arr['icon']="glyphicon glyphicon-tree-deciduous";
-            }else{
-                $list_arr['icon']="glyphicon glyphicon-leaf";
+                if (!$department->childs->isEmpty()) {
+                    $list_arr['icon'] = "glyphicon glyphicon-tree-deciduous";
+                } else {
+                    $list_arr['icon'] = "glyphicon glyphicon-leaf";
+
+                }
+                $list_arr['li_attr'] = '';
+                $list_arr['a_attr'] = '';
+                $list_arr['children'] = [];
+
+
+                if ($select !== null && $select == $department->id) {
+                    $list_arr['state'] = [
+                        'opened' => true,
+                        'selected' => true,
+                    ];
+                }
+
+                if ($id !== null && $id == $department->id) {
+
+                    $list_arr['state'] = [
+                        'opened' => false,
+                        'selected' => 'false',
+                        'disabled' => 'true',
+                        'hidden' => true,
+                    ];
+                }
+
+                $list_arr['id'] = $department->id;
+                $list_arr['parent'] = $department->parent !== null ? $department->parent : "#";
+                $list_arr['text'] = $department->text;
+                array_push($dept_arr, $list_arr);
 
             }
-            $list_arr['li_attr']='';
-            $list_arr['a_attr']='';
-            $list_arr['children']=[];
-
-
-           if($select!==null && $select==$department->id ){
-               $list_arr['state']=[
-                 'opened'=>true,
-                 'selected'=>true,
-               ];
-           }
-
-            if($id!==null && $id==$department->id ){
-
-                $list_arr['state']=[
-                    'opened'=>false,
-                    'selected'=>'false',
-                    'disabled'=>'true',
-                    'hidden'=>true,
-                ];
-            }
-
-            $list_arr['id']=$department->id;
-            $list_arr['parent']=$department->parent!==null?$department->parent:"#";
-            $list_arr['text']=$department->text;
-            array_push($dept_arr, $list_arr);
-
         }
         return json_encode($dept_arr,JSON_UNESCAPED_UNICODE);
     }
@@ -120,7 +122,7 @@ if(!function_exists('admin')) {
 if(!function_exists('lang')) {
     function lang()
     {
-        $lang=session()->has('lang')?session('lang'):@settings()->main_lang;
+        $lang=session()->has('lang')?session('lang'):@settings()->main_lang ;
         return $lang;
     }
 }
@@ -150,7 +152,7 @@ if(!function_exists('datatable_language')) {
             "sInfoFiltered"=>__('admin.infoFilterd'),
             "sInfoPostFix"=>__('admin.infoPostFix'),
             "sSearch"=>__('admin.search'),
-            "sUrl"=>__('admin.url'),
+            "sUrl"=>__(' admin.url'),
             "sInfoThousands"=>__('admin.infoThounds'),
             "sLoadingRecords"=>__('admin.loadRecord'),
             "oPaginate"=> [

@@ -3,7 +3,6 @@
 <!-- Modal -->
 <div id="modalDelete{{$id}}" class="modal fade" role="dialog">
   <div class="modal-dialog">
-
     <!-- Modal content-->
     <div class="modal-content">
       <div class="modal-header">
@@ -11,16 +10,16 @@
         <h4 class="modal-title">{{__('admin.delete')}}</h4>
       </div>
       <div class="modal-body">
-      <p class="alert alert-danger">are you sure to delete<span> {{ session('lang')=='ar'?$country_name_ar:$country_name_en  }} </span></p>
+        <p class="alert alert-danger">are you sure to delete<span> {{ session('lang')=='ar'?$brand_name_ar:$brand_name_en  }} </span></p>
       </div>
       <div class="modal-footer">
-      <form method="post" action="{{route('countries.destroy',$id)}}">
-            {{csrf_field()}}
-            {{method_field('delete')}}
-            <button type="submit" class="btn btn-primary">{{__('admin.yes')}}</button>
-            <button  type="button" class="btn btn-secondary" data-dismiss="modal">{{__('admin.no')}} </button>
-      </form>
-            
+        <form method="post" action="{{route('tradebrands.destroy',$id)}}">
+          {{csrf_field()}}
+          {{method_field('delete')}}
+          <button type="submit" class="btn btn-primary">{{__('admin.yes')}}</button>
+          <button  type="button" class="btn btn-secondary" data-dismiss="modal">{{__('admin.no')}} </button>
+        </form>
+
       </div>
     </div>
 

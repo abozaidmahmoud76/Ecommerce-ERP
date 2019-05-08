@@ -5,68 +5,45 @@
     <p class="alert alert-success ">{{session('success')}}</p>
 @endif
 
-    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('countries.store')}}" enctype="multipart/form-data">
+    <form class="col-lg-6 col-lg-offset-2" method="post" action="{{route('tradebrands.store')}}" enctype="multipart/form-data">
         {{ csrf_field() }}
         <div class="form-group">
-            <label>{{__('admin.country_name_ar')}}</label>
+            <label>{{__('admin.tradeBrand_name_ar')}}</label>
 
             <div class="input-group">
                 <div class="input-group-addon">
                     <i class="fa fa-user"></i>
                 </div>
-                <input type="text" required class="form-control" name="country_name_ar" value="{{old('country_name_ar')}}" placeholder="">
+                <input type="text" required class="form-control" name="brand_name_ar" value="{{old('brand_name_ar')}}" placeholder="">
             </div>
-            @if($errors->has('country_name_ar'))
-                <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('country_name_ar')}}</p>
+            @if($errors->has('brand_name_ar'))
+                <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('brand_name_ar')}}</p>
             @endif
         </div>
 
         <div class="form-group">
-            <label>{{__('admin.country_name_en')}}</label>
+            <label>{{__('admin.tradeBrand_name_en')}}</label>
             <div class="input-group ">
                 <div class="input-group-addon">
                     <i class="fa fa-envelope"></i>
                 </div>
-                <input type="text" required class="form-control " name="country_name_en" value="{{old('country_name_en')}}">
+                <input type="text" required class="form-control " name="brand_name_en" value="{{old('brand_name_en')}}">
             </div>
-            @if($errors->has('country_name_en'))
-                <p class="alert alert-danger error"><i class="fa fa-warning "></i> {{$errors->first('country_name_en')}}</p>
+            @if($errors->has('brand_name_en'))
+                <p class="alert alert-danger error"><i class="fa fa-warning "></i> {{$errors->first('brand_name_en')}}</p>
           @endif
         </div>
-        <div class="form-group">
-            <label>{{__('admin.mob')}}</label>
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fa fa-key"></i>
-                </div>
-                <input type="text" required class="form-control" name="mob" value="{{old('mob')}}">
-            </div>
-            @if($errors->has('mob'))
-                <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('mob')}}</p>
-            @endif
-        </div>
+
+
 
         <div class="form-group">
-            <label>{{__('admin.code')}}</label>
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fa fa-key"></i>
-                </div>
-                <input type="text" required class="form-control" name="code" value="{{old('code')}}">
+            <div class="file-upload btn btn-primary">
+                <span> <label>{{__('admin.brand_logo')}}</label></span>
+                <input type="file" name="logo" id="FileAttachment" class="upload" />
             </div>
-            @if($errors->has('code'))
-                <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('code')}}</p>
+            @if(Storage::disk('public')->exists(@$item->logo))
+                <a target="_blank"  href="{{asset('storage/'.$item->logo)}}">Icon</a>
             @endif
-        </div>
-
-        <div class="form-group">
-            <label>{{__('admin.flag')}}</label>
-            <div class="input-group">
-                <div class="input-group-addon">
-                    <i class="fa fa-key"></i>
-                </div>
-                <input type="file" required class="form-control" name="logo">
-            </div>
             @if($errors->has('logo'))
                 <p class="alert alert-danger error"><i class="fa fa-warning "></i>  {{$errors->first('logo')}}</p>
             @endif
@@ -74,7 +51,7 @@
 
 
             <button type="submit" class="btn btn-primary">{{__('admin.submit')}}</button>
-        <a href="{{url(adminUrl('countries'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> {{__('admin.back')}}</a>
+        <a href="{{url(adminUrl('tradebrands'))}}" class="btn btn-info"><i class="fa fa-arrow-circle-left"></i> {{__('admin.back')}}</a>
 
     </form>
 

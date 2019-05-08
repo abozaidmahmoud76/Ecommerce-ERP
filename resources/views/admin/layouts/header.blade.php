@@ -6,6 +6,8 @@
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.7 -->
     <link rel="stylesheet" href="{{ asset('design/AdminLTE/bower_components/bootstrap/dist/css/bootstrap.min.css')}}">
+    <link rel="stylesheet" href="{{ asset('design/admin/css/upload_style.css')}}">
+
 
     <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('design/AdminLTE/bower_components/font-awesome/css/font-awesome.min.css')}}">
@@ -47,7 +49,6 @@
     <link rel="stylesheet" href="{{ asset('design/AdminLTE/dist/css/style.css')}}">
     <link rel="stylesheet" href="{{ asset('design/admin/css/sidemenu_style.css')}}">
     <link rel="stylesheet" href="{{asset('design/admin/jstree/dist/themes/default/style.min.css')}}" />
-
     @stack('css')
     @yield('style_css')
 

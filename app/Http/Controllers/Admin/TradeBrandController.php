@@ -8,6 +8,7 @@ use App\DataTables\TradeBrandDatatable;
 use App\Model\TradeBrand;
 use Mail;
 use App\Mail\sendMail;
+use Storage;
 
 class TradeBrandController extends Controller
 {
@@ -43,6 +44,7 @@ class TradeBrandController extends Controller
 
     public function index(TradeBrandDatatable $tradeBrand)
     {
+
         return $tradeBrand->render('admin.tradeBrands.listBrands',['title'=>'brands datatable']);
     }
 
@@ -59,8 +61,8 @@ class TradeBrandController extends Controller
     public function store(Request $req)
     {
        $validate=$this->validate($req,[
-           'brand_name_ar'=>'required|string',
-           'brand_name_en'=>'required|string',
+           'brand_name_ar'=>'required|string|min:3|max:50',
+           'brand_name_en'=>'required|string|min:3|max:50',
            'logo'=>v_image(),
 
        ]);
@@ -74,7 +76,7 @@ class TradeBrandController extends Controller
         }
 
         TradeBrand::create($validate);
-       session()->flash('success','country created successfully');
+       session()->flash('success','Brand created successfully');
        return back();
     }
 
@@ -93,21 +95,18 @@ class TradeBrandController extends Controller
 
     public function update(Request $req, $id)
     {
-
-
         $validate=$this->validate($req,[
-            'country_name_ar'=>'required|string',
-            'country_name_en'=>'required|string',
-            'mob'=>'required',
-            'code'=>'required',
+            'brand_name_ar'=>'required|string|min:3|max:50',
+            'brand_name_en'=>'required|string|min:3|max:50',
             'logo'=>v_image(),
-
         ]);
+
+
       $item= TradeBrand::find($id);
         if($req->has('logo')){
             $logo=upload()->upload([
                 'file'=>'logo',
-                'path'=>'country',
+                'path'=>'brands',
                 'upload_type'=>'single',
                 'delete_file'=>$item->logo,
             ]);
@@ -116,7 +115,7 @@ class TradeBrandController extends Controller
 
 
 
-        TradeBrand::find($id)->update($validate);
+        $item->update($validate);
             session()->flash('success', 'TradeBrand updated successfully');
             return back();
         }
@@ -128,11 +127,17 @@ class TradeBrandController extends Controller
 
      $records='';
      if($id!=null){
-        TradeBrand::find($id)->delete();
-        $records='record';
+           $brand= TradeBrand::find($id);
+           Storage::delete($brand->logo);
+           $brand->delete();
+           $records='record';
      }else{
+         $brands=TradeBrand::whereIn('id',$req->item_checkbox)->get();
+         foreach ($brands as $brand){
+             Storage::delete($brand->logo);
+         }
          TradeBrand::destroy($req->item_checkbox);
-        $records='records';
+         $records='records';
      }
         session()->flash('success',$records .' deleted successfully');
         return back();

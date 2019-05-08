@@ -85,6 +85,9 @@ return[
     'dep_name_ar'=>'department_name (ar)',
     'dep_name_en'=>'department_name (en)',
     'keyword'=>'keyword',
+    'tradeBrand_name_ar'=>'tradeBrand_name (ar)',
+    'tradeBrand_name_en'=>'tradeBrand_name (en)',
+    'brand_logo'=>'Brand Logo',
 
 
 

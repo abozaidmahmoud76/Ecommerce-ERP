@@ -47,21 +47,6 @@ $('#jstree').jstree({
 });
 
 
-
-{{--$('#jstree').jstree({--}}
-    {{--"core" : {--}}
-        {{--"themes" : {--}}
-            {{--"variant" : "large"--}}
-        {{--},--}}
-        {{--'data' :{!! load_department() !!},--}}
-    {{--},--}}
-    {{--"checkbox" : {--}}
-        {{--"keep_selected_style" : false--}}
-    {{--},--}}
-    {{--"plugins" : [ "wholerow", "" ]--}}
-{{--});--}}
-
-
 $('#jstree').on('changed.jstree',function (e,data) {
                  var i,j,arr=[];
                  for(i=0,j=data.selected.length;i<j;i++){

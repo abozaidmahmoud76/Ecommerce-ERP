@@ -105,17 +105,17 @@ class TradeBrandDatatable extends DataTable
 
             [
                 'title'=>__('admin.tradeBrand_name_ar'),
-                'name'=>'tradeBrand_name_ar',
-                'data'=>'tradeBrand_name_ar',
+                'name'=>'brand_name_ar',
+                'data'=>'brand_name_ar',
             ],
             [
                 'title'=>__('admin.tradeBrand_name_en'),
-                'name'=>'tradeBrand_name_en',
-                'data'=>'tradeBrand_name_en',
+                'name'=>'brand_name_en',
+                'data'=>'brand_name_en',
             ],
 
             [
-                'title'=>__('admin.logo'),
+                'title'=>__('admin.brand_logo'),
                 'name'=>'logo',
                 'data'=>'logo',
             ],

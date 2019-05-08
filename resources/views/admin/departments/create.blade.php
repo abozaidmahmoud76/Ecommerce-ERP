@@ -1,7 +1,6 @@
 @extends('admin.index')
 
 @section('style_css')
-    <link rel="stylesheet" href="{{ asset('design/admin/css/upload_style.css')}}">
 @endsection
 
 @section('content')
