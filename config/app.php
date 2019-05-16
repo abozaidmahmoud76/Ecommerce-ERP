@@ -179,9 +179,9 @@ return [
 
 
         /////        my custom provider ////////
-        Yajra\DataTables\DataTablesServiceProvider::class,
-        Yajra\DataTables\ButtonsServiceProvider::class,
-        Collective\Html\HtmlServiceProvider::class
+//        Yajra\DataTables\DataTablesServiceProvider::class,
+//        Yajra\DataTables\ButtonsServiceProvider::class,
+//        Collective\Html\HtmlServiceProvider::class
 
 
 
@@ -237,8 +237,8 @@ return [
         'Up' => App\Http\Controllers\Admin\UploadController::class,
 
         //custom aliases
-        'Form' => Collective\Html\FormFacade::class,
-        'Html' => Collective\Html\HtmlFacade::class,
+//        'Form' => Collective\Html\FormFacade::class,
+//        'Html' => Collective\Html\HtmlFacade::class,
 
     ],
 

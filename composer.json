@@ -5,14 +5,15 @@
     "license": "MIT",
     "type": "project",
     "require": {
-        "php": ">=7.0.0",
-        "fideloper/proxy": "~3.3",
-        "laravel/framework": "5.5.*",
+        "php": ">=7.2.0",
+        "fideloper/proxy": "~4.0",
+        "laravel/framework": "5.7.*",
+        "laravel/socialite": "^4.1",
         "laravel/tinker": "~1.0",
+        "laravelcollective/html": "^5.7",
         "yajra/laravel-datatables": "^1.0",
         "yajra/laravel-datatables-buttons": "^3.0",
-        "yajra/laravel-datatables-oracle": "^8.0",
-        "laravelcollective/html":"^5.5"
+        "yajra/laravel-datatables-oracle": "^8.0"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
